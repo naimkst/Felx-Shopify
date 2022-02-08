@@ -1,0 +1,52 @@
+
+
+@font-face {
+    font-family: 'Silka';
+    src: url('./Silka-Light.eot');
+    src: url('./Silka-Light.eot?#iefix') format('embedded-opentype'),
+        url('./Silka-Light.woff2') format('woff2'),
+        url('./Silka-Light.woff') format('woff'),
+        url('./Silka-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Silka';
+    src: url('./Silka-Regular.eot');
+    src: url('./Silka-Regular.eot?#iefix') format('embedded-opentype'),
+        url('./Silka-Regular.woff2') format('woff2'),
+        url('./Silka-Regular.woff') format('woff'),
+        url('./Silka-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Silka';
+    src: url('./Silka-Medium.eot');
+    src: url('./Silka-Medium.eot?#iefix') format('embedded-opentype'),
+        url('./Silka-Medium.woff2') format('woff2'),
+        url('./Silka-Medium.woff') format('woff'),
+        url('./Silka-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Silka';
+    src: url('./silka-semibold.eot');
+    src: url('./silka-semibold.eot?#iefix') format('embedded-opentype'),
+        url('./silka-semibold.woff2') format('woff2'),
+        url('./silka-semibold.woff') format('woff'),
+        url('./silka-semibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+
+
+

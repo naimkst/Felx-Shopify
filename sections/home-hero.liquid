@@ -1,0 +1,71 @@
+<!-- hero banner area start here  -->
+<div class="hero-banner-area">
+    {% if section.settings.hero_background_image %}
+        <style>
+            .hero-banner-area {
+                background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.7)), to(rgba(82, 78, 78, 0.5))), url({{ section.settings.hero_background_image | img_url: ''}});
+                background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(82, 78, 78, 0.5)), url({{ section.settings.hero_background_image | img_url: ''}});
+
+            }
+        </style>
+    {% endif %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-7 col-lg-10">
+                {% if section.settings.hero_title %}
+                <h1 class="banner-title">{{ section.settings.hero_title }}</h1>
+                {% endif %}
+
+                {% if section.settings.hero_slug %}
+                    {{ section.settings.hero_slug }}
+                {% endif %}
+
+                {% if section.settings.hero_button_title %}
+                    <a href="{{ section.settings.hero_button_url }}" class="button-white-black">{{ section.settings.hero_button_title }}</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- hero banner area end here  -->
+
+{% schema %}
+{
+    "name": "Home Hero Section",
+    "settings":[
+        {
+            "type": "image_picker",
+            "id": "hero_background_image",
+            "label": "Hero Background Image"
+        },
+        {
+            "type": "text",
+            "id": "hero_title",
+            "label": "Hero Title",
+            "default": "Webshop Flex Projects"
+        },
+        {
+            "type": "richtext",
+            "id": "hero_slug",
+            "label": "Hero Slug",
+            "default": "<p>Wij hebben voor u een selectie gemaakt, maar wij hebben nog veel meer! O.a. Herman Miller, Vitra, Interstuhl, Gispen en Normann Copenhagen.</p>"
+        },
+        {
+            "type": "text",
+            "id": "hero_button_title",
+            "label": "Hero Button Text",
+            "default": "Vul hier uw specifieke wens in"
+        },
+        {
+            "type": "url",
+            "id": "hero_button_url",
+            "label": "Hero Button Link"
+        }
+    ],
+    "presets": [
+      {
+        "name": "Home Hero Section"
+      }
+    ]
+}
+{% endschema %}

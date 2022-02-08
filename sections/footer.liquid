@@ -30,14 +30,14 @@
                     <div class="single-widget newsletter-widget">
                         <h3 class="newsletter-title">{{ section.settings.newslatter_text }}</h3>
                         <div class="newsletter-form">
-                            {% form 'contact', enctype: 'multipart/form-data' %}
+                            {% form 'contact' %}
                             {% if form.posted_successfully? %} 
-                             <p>Thank you for your contact</p>   
+                             <p class="secondary-link">Thank you for your contact</p>   
                             {% endif %}
                             {{ form.errors | default_errors }}
                                 <div class="form-wrap d-flex">
-                                    <input type="email" class="form-control" id="email" name"contact[email]" placeholder="E-mail adres" />
-                                    <button class="send-btn"><i class="fas fa-angle-right"></i></button>
+                                    <input type="email" class="form-control" id="email" name="contact[email]" placeholder="E-mail adres" />
+                                    <button type="submit" class="send-btn"><i class="fas fa-angle-right"></i></button>
                                 </div>
                             {%- endform -%}
                         </div>

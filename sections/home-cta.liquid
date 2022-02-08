@@ -1,0 +1,85 @@
+<!-- cta area start here  -->
+<div class="cta-area">
+    {% if section.settings.cta_background %}
+        <style>
+            .cta-area {
+                background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.81)), to(rgba(78, 71, 71, 0.49))), url({{ section.settings.cta_background | img_url: '' }});
+                background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.81), rgba(78, 71, 71, 0.49)), url({{ section.settings.cta_background | img_url: '' }});
+            }
+        </style>
+    {% endif %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-8">
+                {% if section.settings.cta_slug %}
+                <h3 class="cta-sub-title">{{ section.settings.cta_slug }}</h3>
+                {% endif %}
+
+                {% if section.settings.cta_title %}
+                    <h2 class="cta-title">{{ section.settings.cta_title }}</h2>
+                {% endif %}
+
+                <div class="button-list">
+                    {% for block in section.blocks %}
+                        <a href="{{ block.settings.cta_button_link }}" class="button-black-white">{{ block.settings.cta_button_text }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- cta area end here  -->
+
+{% schema %}
+{
+    "name": "Home CTA Section",
+    "settings":[
+        {
+            "type": "text",
+            "id": "cta_slug",
+            "label": "CTA Slug",
+            "default": "Get In Touch"
+        },
+        {
+            "type": "text",
+            "id": "cta_title",
+            "label": "CTA Title",
+            "default": "Bent u geïnteresseerd in wat wij voor u kunnen betekenen?"
+        },
+        {
+            "type": "image_picker",
+            "id": "cta_background",
+            "label": "CTA Background"
+        }
+    ],
+    "blocks":[
+        {
+            
+        "name": "CAT Button List",
+        "type": "url",
+        "settings": [
+                {
+                    "type": "text",
+                    "id": "cta_button_text",
+                    "label": "Button Text"
+                },
+                {
+                    "type": "url",
+                    "id": "cta_button_link",
+                    "label": "CTA Button Link"
+                }
+            ]
+        }
+    ],
+    "presets": [
+      {
+        "name": "Home CTA Section",
+        "blocks": [
+          {
+            "type": "url"
+          }
+        ]
+      }
+    ]
+}
+{% endschema %}

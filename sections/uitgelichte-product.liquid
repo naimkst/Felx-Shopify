@@ -1,0 +1,56 @@
+<!-- uitgelichte producten area start here  -->
+<div class="uitgelichte-producten section-bottom">
+    <div class="container">
+        {% if section.settings.uitgelichte_title %}
+        <h2 class="section-title">{{ section.settings.uitgelichte_title }}</h2>
+        {% endif %}
+        <div class="row">
+            {% for product in section.settings.uitgelichte_product.products limit:section.settings.product_limit %}
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                    <div class="single-product-grid">
+                        <div class="product-thumbnail">
+                            <a href="{{ product.url }}"><img src="{{ product.featured_image.src | img_url: '' }}" alt="product" /></a>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title"><a href="{{ product.url }}">{{ product.title }}</a></h3>
+                            <h5 class="sub-title">{{ product.price | money }}</h5>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- uitgelichte producten area end here  -->
+
+{% schema %}
+{
+    "name": "Home Uitgelichte Section",
+    "settings":[
+        {
+            "type": "text",
+            "id": "uitgelichte_title",
+            "label": "Uitgelichte Title",
+            "default": "Uitgelichte Producten"
+        },
+        {
+            "type": "collection",
+            "id": "uitgelichte_product",
+            "label": "Uitgelichte Product Collection"
+        },
+        {
+            "type": "range",
+            "id": "product_limit",
+            "label": "Collection limit",
+            "default": 4,
+            "min": 1,
+            "max": 50
+        }
+    ],
+    "presets": [
+      {
+        "name": "Home Uitgelichte Section"
+      }
+    ]
+}
+{% endschema %}

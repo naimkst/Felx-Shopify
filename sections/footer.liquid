@@ -1,0 +1,245 @@
+<!-- footer area start here  -->
+<footer class="footer-area">
+    <div class="container">
+        <div class="footer-top">
+            <div class="row align-items-center">
+                <div class="col-md-3">
+                    <div class="footer-top-left">
+                        {% if section.settings.footer_logo %}
+                        <a class="footer-logo" href="/"><img src="{{ section.settings.footer_logo | img_url: '' }}"
+                                alt="footer logo" />
+                        </a>
+                        {% else %}
+                        <a class="footer-logo" href="/"><img src="{{ 'footer-logo.png' | asset_url }}"
+                            alt="footer logo" />
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="footer-top-right">
+                        <div class="footer-title-button">{{ section.settings.renewal_text }}</div>
+                        <a href="{{ section.settings.renewal_link }}" class="button">Vraag direct een offerte aan</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="widget-area">
+            <div class="row">
+                <div class="col-12-4 col-lg-4">
+                    <div class="single-widget newsletter-widget">
+                        <h3 class="newsletter-title">{{ section.settings.newslatter_text }}</h3>
+                        <div class="newsletter-form">
+                            {% form 'contact', enctype: 'multipart/form-data' %}
+                            {% if form.posted_successfully? %} 
+                             <p>Thank you for your contact</p>   
+                            {% endif %}
+                            {{ form.errors | default_errors }}
+                                <div class="form-wrap d-flex">
+                                    <input type="email" class="form-control" id="email" name"contact[email]" placeholder="E-mail adres" />
+                                    <button class="send-btn"><i class="fas fa-angle-right"></i></button>
+                                </div>
+                            {%- endform -%}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 col-lg-7 offset-lg-1">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single-widget menu-widget">
+                                <h3 class="widget-title">{{ section.settings.first_menu_title }}</h3>
+                                <ul>
+                                    {% for link in linklists[section.settings.footer_menu].links %}
+                                        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single-widget menu-widget">
+                                <h3 class="widget-title">{{ section.settings.nieuws_menu_title }}</h3>
+                                <ul>
+                                    {% for link in linklists[section.settings.footer_Nieuws_menu].links %}
+                                        <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div class="single-widget contact-widget">
+                                <h3 class="widget-title">Contact</h3>
+                                {% if settings.address %}
+                                <p>{{ settings.address }}</p>
+                                {% endif %}
+
+                                {% if settings.phone %}
+                                <a href="tel:{{settings.phone}}" class="link-2">{{settings.phone}}<br></a>
+                                {% endif %}
+
+                                {% if settings.email %}
+                                <a href="mailto:{{settings.email}}" class="link-2">{{settings.email}}</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="footer-wrapper">
+                        <a href="#" class="secondary-link">{{ section.settings.copry_right }}</a>
+                        <a href="{{ section.settings.sitemap_link }}" target="_blank" class="secondary-link">Sitemap</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="footer-bottom-right">
+                        <div class="single-box payment-box">
+                            <h4 class="title">{{ section.settings.payment_title }}</h4>
+                            <div class="payment-icons">
+
+                                {% assign blocks = section.blocks %}
+
+                                {% if blocks != blank %}
+                                    {% for block in section.blocks %}
+                                        <img class="payment-image" src="{{ block.settings.payment_images | img_url: '' }}" alt="ideal" />
+                                    {% endfor %}
+                                {% else %}
+                                    <img class="payment-image" src="{{ 'ideal.svg'| asset_url }}" alt="ideal" />
+                                    <img class="payment-image" src="{{ 'klarna.svg' | asset_url }}" alt="klarna" />
+                                    <img class="payment-image" src="{{ 'mastercard.svg' | asset_url }}" alt="mastercard" />
+                                    <img class="payment-image" src="{{ 'visa.svg' | asset_url }}" alt="visa" />
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="single-box">
+                            <h4 class="title">{{ section.settings.social_title }}</h4>
+                            <div class="footer-social-meida">
+                                {% if settings.youtube %}
+                                <a href="{{ settings.youtube }}" class="social-icon"><i class="fab fa-youtube"></i></a>
+                                {% endif %}
+                
+                                {% if settings.printerest %}
+                                <a href="{{ settings.printerest }}" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+                                {% endif %}
+                
+                                {% if settings.linkedin %}
+                                <a href="{{ settings.linkedin }}" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                                {% endif %}
+                
+                                {% if settings.instagram %}
+                                <a href="{{ settings.instagram }}" class="social-icon"><i class="fab fa-instagram"></i></a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer area end here  -->
+<!-- Js file  -->
+
+
+<script src="{{ 'jquery-3.6.0.min.js' | asset_url }}"></script>
+<script src="{{ 'bootstrap.bundle.min.js' | asset_url }}"></script>
+<script src="{{ 'plugins.js' | asset_url }}"></script>
+<script src="{{ 'main.js' | asset_url }}"></script>
+
+
+{% schema %}
+{
+    "name": "Footer",
+    "settings":[
+    
+        {
+            "type": "image_picker",
+            "id": "footer_logo",
+            "label": "Footer Logo"
+        },
+        {
+            "type": "link_list",
+            "id": "footer_menu",
+            "label": "Footer Flex-Projects menu"
+        },
+        {
+            "type": "link_list",
+            "id": "footer_Nieuws_menu",
+            "label": "Footer Nieuws menu"
+        },
+        {
+            "type": "url",
+            "id": "sitemap_link",
+            "label": "Sitemap Link"
+        },
+        {
+            "type": "text",
+            "id": "copry_right",
+            "label": "Copyright Text",
+            "default": "© Flex Projects | Powered by Provision Media"
+        },
+        {
+            "type": "text",
+            "id": "renewal_text",
+            "label": "Ready for renewal",
+            "default": "Ready for renewal?"
+        },
+        {
+            "type": "url",
+            "id": "renewal_link",
+            "label": "Ready for renewal Link"
+        },
+        {
+            "type": "text",
+            "id": "newslatter_text",
+            "label": "Newslatter Text",
+            "default": "Schrijf je in voor onze nieuwsbrief!"
+        },
+        {
+            "type": "text",
+            "id": "social_title",
+            "label": "Social Title",
+            "default": "Socials"
+        },
+        {
+            "type": "text",
+            "id": "payment_title",
+            "label": "Payment Title",
+            "default": "Payments"
+        },
+        {
+            "type": "text",
+            "id": "first_menu_title",
+            "label": "Flex Projects Menu Title",
+            "default": "Flex Projects"
+        },
+        {
+            "type": "text",
+            "id": "nieuws_menu_title",
+            "label": "Nieuws Menu Title",
+            "default": "Nieuws"
+        }
+    ],
+    "blocks": [
+        {
+        "name": "Payment Images",
+        "type": "slide",
+        "settings": [
+            
+            {
+                "type": "image_picker",
+                "id": "payment_images",
+                "label": "Payment Images"
+            }
+        ]
+        }
+    ],
+    "presets": [
+      {
+        "name": "Footer"
+      }
+    ]
+}
+{% endschema %}

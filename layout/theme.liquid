@@ -1,144 +1,14 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
     <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>flex-projects  HTML5 Template</title>
-        <meta name="description" content="flex-projects  HTML5 Template " />
-        <meta name="keywords" content="business,corporate, creative, woocommerach, design, gallery, minimal, modern, landing page, cv, designer, freelancer, html, one page, personal, portfolio, programmer, responsive, nft, p2p, vcard, one page" />
-        <meta name="author" content="Pexeer" />
-        <!-- Place favicon.ico in the root directory -->
-        <link rel="shortcut icon" href="{{ 'favicon.png' | asset_url }}" type="image/x-icon">
-        <!-- fonts file -->
-        <link rel="stylesheet" href="{{ 'silka-font.css' | asset_url }}" />
-        <!-- css file  -->
-        <link rel="stylesheet" href="{{ 'plugins.css' | asset_url }}" />
-        <link rel="stylesheet" href="{{ 'bootstrap.min.css' | asset_url }}" />
-        <link rel="stylesheet" href="{{ 'style.css' | asset_url }}" />
-        <link rel="stylesheet" href="{{ 'responsive.css' | asset_url }}" />
-        <script src="{{ 'modernizr-3.11.2.min.js' | asset_url }}"></script>
+      {% section 'header' %}
         {{content_for_header}}
     </head>
     <body>
-
-      {% section 'nav' %}
-        
+      {% section 'navigation' %}
+      
         {{content_for_layout}}
 
-        <!-- footer area start here  -->
-        <footer class="footer-area">
-            <div class="container">
-                <div class="footer-top">
-                    <div class="row align-items-center">
-                        <div class="col-md-3">
-                            <div class="footer-top-left">
-                                <a class="footer-logo" href="index.html"><img src="assets/footer-logo.png" alt="footer logo" /></a>
-                            </div>
-                        </div>
-                        <div class="col-md-9">
-                            <div class="footer-top-right">
-                                <div class="footer-title-button">Klaar voor vernieuwing?</div>
-                                <a href="#" class="button">Vraag direct een offerte aan</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="widget-area">
-                    <div class="row">
-                        <div class="col-12-4 col-lg-4">
-                            <div class="single-widget newsletter-widget">
-                                <h3 class="newsletter-title">Schrijf je in voor onze <br />nieuwsbrief!</h3>
-                                <div class="newsletter-form">
-                                    <form action="#">
-                                        <div class="form-wrap d-flex">
-                                            <input type="email" class="form-control" id="email" placeholder="E-mail adres" />
-                                            <button class="send-btn"><i class="fas fa-angle-right"></i></button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-lg-7 offset-lg-1">
-                            <div class="row">
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="single-widget menu-widget">
-                                        <h3 class="widget-title">Flex-Projects</h3>
-                                        <ul>
-                                            <li><a href="#">Over ons</a></li>
-                                            <li><a href="#">Design & Build</a></li>
-                                            <li><a href="#">Flex Foundation</a></li>
-                                            <li><a href="#">Vacatures</a></li>
-                                            <li><a href="#">Producten</a></li>
-                                            <li><a href="#">Webwinkel beleid</a></li>
-                                            <li><a href="#">Privacy Policy</a></li>
-                                            <li><a href="#">Werkplekaanpassen.nl</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="single-widget menu-widget">
-                                        <h3 class="widget-title">Nieuws</h3>
-                                        <ul>
-                                            <li><a href="#">Projecten</a></li>
-                                            <li><a href="#">Updates</a></li>
-                                            <li><a href="#">Ervaringen</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 col-sm-6">
-                                    <div class="single-widget contact-widget">
-                                        <h3 class="widget-title">Contact</h3>
-                                        <p>Flex Projects B.V. <br />  Edisonweg 14 <br /> 4207 HG Gorinchem</p>
-                                        <a href="tel:0183741001" class="link-2">+31 (0) 183 74 10 01<br></a>
-                                        <a href="mailto:info@flex-projects.nl" class="link-2">info@flex-projects.nl</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-bottom">
-                    <div class="row align-items-center">
-                        <div class="col-lg-6">
-                            <div class="footer-wrapper">
-                                <a href="#" class="secondary-link">&copy; Flex Projects | Powered by Provision Media</a>
-                                <a href="#" target="_blank" class="secondary-link">Sitemap</a>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="footer-bottom-right">
-                                <div class="single-box payment-box">
-                                    <h4 class="title">Payments</h4>
-                                    <div class="payment-icons">
-                                        <img class="payment-image" src="assets/ideal.svg" alt="ideal" />
-                                        <img class="payment-image" src="assets/klarna.svg" alt="klarna" />
-                                        <img class="payment-image" src="assets/mastercard.svg" alt="mastercard" />
-                                        <img class="payment-image" src="assets/visa.svg" alt="visa" />
-                                    </div>
-                                </div>
-                                <div class="single-box">
-                                    <h4 class="title">Socials</h4>
-                                    <div class="footer-social-meida">
-                                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-                                        <a href="#" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
-                                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- footer area end here  -->
-        <!-- Js file  -->
-
-
-        <script src="{{ 'jquery-3.6.0.min.js' | asset_url }}"></script>
-        <script src="{{ 'bootstrap.bundle.min.js' | asset_url }}"></script>
-        <script src="{{ 'plugins.js' | asset_url }}"></script>
-        <script src="{{ 'main.js' | asset_url }}"></script>
+      {% section 'footer' %}
     </body>
 </html>

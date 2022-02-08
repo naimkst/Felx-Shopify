@@ -1,0 +1,157 @@
+<!-- top bar are star there  -->
+<div class="topbar-area d-none d-lg-block">
+    <div class="container">
+        <div class="topbar-area-wrap">
+            <div class="topbar-left">
+                {% if settings.youtube %}
+                <a href="{{ settings.youtube }}" class="social-icon"><i class="fab fa-youtube"></i></a>
+                {% endif %}
+
+                {% if settings.printerest %}
+                <a href="{{ settings.printerest }}" class="social-icon"><i class="fab fa-pinterest-p"></i></a>
+                {% endif %}
+
+                {% if settings.linkedin %}
+                <a href="{{ settings.linkedin }}" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                {% endif %}
+
+                {% if settings.instagram %}
+                <a href="{{ settings.instagram }}" class="social-icon"><i class="fab fa-instagram"></i></a>
+                {% endif %}
+
+                {% if settings.email %}
+                <a href="mailto:{{settings.email}}" class="link-top-bar">{{ settings.email }}</a>
+                {% endif %}
+
+                {% if settings.phone %}
+                <a href="tel:{{ settings.phone }}" class="link-top-bar">{{ settings.phone }}</a>
+                {%endif %}
+            </div>
+            <div class="topbar-left">
+                <a href="#" class="cart-link">
+                    {% if section.settings.cart_text %}
+                        <span>{{ section.settings.cart_text }}</span>
+                    {% endif %}
+                    <img class="icon" src="{{ 'cart-icon.svg' | asset_url }}" alt="image" />
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- top bar are end there  -->
+<!-- header area start here  -->
+<header class="header-area" id="sticky">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                {% if section.settings.logo %}
+                <img class="web-logo d-none d-lg-block" src="{{ section.settings.logo | img_url: '' }}" alt="logo" />
+                <img class="mobile-logo d-block d-lg-none" src="{{ section.settings.mobile_logo | img_url: '' }}" alt="mobile logo" />
+                {% else %}
+                <img class="web-logo d-none d-lg-block" src="{{ 'logo.png' | asset_url }}" alt="logo" />
+                <img class="mobile-logo d-block d-lg-none" src="{{ 'logo.png' | asset_url }}" alt="mobile logo" />
+                {% endif %}
+            </a>
+            <div class="cart-toggle-menu">
+                <a href="#" class="cart-link d-block d-lg-none">
+                    <img class="icon" src="assets/cart-icon.svg" alt="image" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                    {% for link in linklists[section.settings.main_menu].links %}
+                        <li class="nav-item {% if link.links.size > 0 %} dropdown {% endif %}">
+                            <a class="nav-link {% if link.links.size > 0 %}dropdown-toggle{% endif %}" href="{{ link.url }}" role="button" data-bs-toggle="dropdown">
+                                {{ link.title }}
+                            </a>
+                            {% if link.links.size > 0 %}
+                                <div class="dropdown-menu">
+                                    <div class="navigation-list">
+                                        {% for child_link in link.links %}
+                                            <div class="single-navigation">
+                                                <a href="{{ child_link.url }}" class="navigation-link">
+                                                    <div class="nav-image-wrapper">
+                                                        {% if child_link.type == "collection_link" %}
+                                                        <img src="{{ child_link.object.image | img_url: '' }}" alt="product" />
+                                                        {% endif %}
+                                                    </div>
+                                                    <div class="nav-content-wrap">
+                                                        <h3 class="nav-title">{{ child_link.title }}</h3>
+                                                        {% if child_link.type == "collection_link" %}
+                                                            <p class="nav-link-details">{{ child_link.object.description }}</p>
+                                                        {% endif %}
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        {% endfor %}
+
+                                    </div>
+                                    <div class="navigation-bottom-bar">
+                                        <a class="navigation-bottom-link" href="{{ section.settings.latest_news }}"><span>Lees onze laatste nieuws
+                                                updates</span></a>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+
+                </ul>
+                <div class="search-form">
+                    <form action="#">
+                        <div class="form-wrap d-flex">
+                            <input class="form-control" type="search" placeholder="Zoeken..." />
+                            <button class="search-btn" type="submit"><i class="fas fa-arrow-right"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<!-- header area end here  -->
+<!-- hero banner area start here  -->
+
+{% schema %}
+{
+    "name": "Header & Navigation",
+    "settings":[
+        {
+            "type": "image_picker",
+            "id": "logo",
+            "label": "Logo"
+        },
+        {
+            "type": "image_picker",
+            "id": "mobile_logo",
+            "label": "Mobile Logo"
+        },
+        {
+            "type": "link_list",
+            "id": "main_menu",
+            "label": "Main menu"
+        },
+        {
+            "type": "text",
+            "id": "cart_text",
+            "label": "Winkelmand Text",
+            "default": "Winkelmand"
+        },
+        {
+            "type": "url",
+            "id": "latest_news",
+            "label": "Latest New Update Link"
+        }
+    ],
+    "presets": [
+      {
+        "name": "Header & Navigation"
+      }
+    ]
+}
+{% endschema %}

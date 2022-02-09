@@ -11,7 +11,7 @@
       "navigation": {
         "type": "navigation",
         "settings": {
-          "main_menu": "",
+          "main_menu": "main-menu",
           "cart_text": "Winkelmand",
           "latest_news": ""
         }
@@ -19,8 +19,8 @@
       "footer": {
         "type": "footer",
         "settings": {
-          "footer_menu": "",
-          "footer_Nieuws_menu": "",
+          "footer_menu": "flex-projects",
+          "footer_Nieuws_menu": "nieuws",
           "sitemap_link": "",
           "copry_right": "© Flex Projects | Powered by Provision Media",
           "renewal_text": "Ready for renewal?",

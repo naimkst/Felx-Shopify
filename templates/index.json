@@ -26,24 +26,32 @@
     "cta": {
       "type": "home-cta",
       "blocks": {
-        "6ed4c92e-eae5-488f-813a-d62a99082156": {
-          "type": "url",
-          "settings": {
-            "cta_button_text": "",
-            "cta_button_link": ""
-          }
-        },
         "00159e23-d97d-4ab1-b41c-3dd0db638aff": {
           "type": "url",
           "settings": {
             "cta_button_text": "Neem contact op",
             "cta_button_link": ""
           }
+        },
+        "52f3e060-cac0-45f6-9fdc-2e9280fc838d": {
+          "type": "url",
+          "settings": {
+            "cta_button_text": "Offerte aanvragen",
+            "cta_button_link": ""
+          }
+        },
+        "595b365d-be94-4378-8b61-1ddf0c7e4341": {
+          "type": "url",
+          "settings": {
+            "cta_button_text": "Recente projecten",
+            "cta_button_link": ""
+          }
         }
       },
       "block_order": [
-        "6ed4c92e-eae5-488f-813a-d62a99082156",
-        "00159e23-d97d-4ab1-b41c-3dd0db638aff"
+        "00159e23-d97d-4ab1-b41c-3dd0db638aff",
+        "52f3e060-cac0-45f6-9fdc-2e9280fc838d",
+        "595b365d-be94-4378-8b61-1ddf0c7e4341"
       ],
       "settings": {
         "cta_slug": "Get In Touch",

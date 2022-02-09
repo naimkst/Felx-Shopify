@@ -32,10 +32,18 @@
             "cta_button_text": "",
             "cta_button_link": ""
           }
+        },
+        "00159e23-d97d-4ab1-b41c-3dd0db638aff": {
+          "type": "url",
+          "settings": {
+            "cta_button_text": "Neem contact op",
+            "cta_button_link": ""
+          }
         }
       },
       "block_order": [
-        "6ed4c92e-eae5-488f-813a-d62a99082156"
+        "6ed4c92e-eae5-488f-813a-d62a99082156",
+        "00159e23-d97d-4ab1-b41c-3dd0db638aff"
       ],
       "settings": {
         "cta_slug": "Get In Touch",

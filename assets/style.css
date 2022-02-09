@@ -1978,3 +1978,8 @@ scrollUp
 .shopify-challenge__container {
   padding: 5% 0;
 }
+.uitgelichte-producten.section-bottom .product-thumbnail img {
+  width: 100%;
+  height: 300px;
+  object-fit: contain;
+}

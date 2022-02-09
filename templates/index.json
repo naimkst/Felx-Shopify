@@ -1,16 +1,46 @@
 {
   "sections": {
     "hero": {
-      "type": "home-hero"
+      "type": "home-hero",
+      "settings": {
+        "hero_title": "Webshop Flex Projects",
+        "hero_slug": "<p>Wij hebben voor u een selectie gemaakt, maar wij hebben nog veel meer! O.a. Herman Miller, Vitra, Interstuhl, Gispen en Normann Copenhagen.<\/p>",
+        "hero_button_title": "Vul hier uw specifieke wens in",
+        "hero_button_url": ""
+      }
     },
     "collection": {
-      "type": "home-collection"
+      "type": "home-collection",
+      "settings": {
+        "collection_limit": 8
+      }
     },
     "uitgelichte": {
-      "type": "uitgelichte-product"
+      "type": "uitgelichte-product",
+      "settings": {
+        "uitgelichte_title": "Uitgelichte Producten",
+        "uitgelichte_product": "",
+        "product_limit": 4
+      }
     },
     "cta": {
-      "type": "home-cta"
+      "type": "home-cta",
+      "blocks": {
+        "6ed4c92e-eae5-488f-813a-d62a99082156": {
+          "type": "url",
+          "settings": {
+            "cta_button_text": "",
+            "cta_button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "6ed4c92e-eae5-488f-813a-d62a99082156"
+      ],
+      "settings": {
+        "cta_slug": "Get In Touch",
+        "cta_title": "Bent u geïnteresseerd in wat wij voor u kunnen betekenen?"
+      }
     }
   },
   "order": [

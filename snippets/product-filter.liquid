@@ -64,13 +64,6 @@
 
                     {%- when 'price_range' -%}
                     <div class="single-widget">
-                        <h3 class="widget-title">
-                            <font style="vertical-align: inherit;">
-                                <font style="vertical-align: inherit;">
-                                    Price
-                                </font>
-                            </font>
-                        </h3>
 
                         <div class="price-range">
                             <div class="price-amount">
@@ -80,11 +73,11 @@
                                 <input type="hidden" id="curency_symble" data-symbol="{{ cart.currency.symbol }}"
                                     type="text">
                                 <input type="text"
-                                    curent-min="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"
+                                    curent-minm="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"
                                     id="amount1" name="{{ filter.min_value.param_name }}"
                                     value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}">
                                 <input type="text"
-                                    curent-max="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"
+                                    curent-maxm="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"
                                     id="amount2" name="{{ filter.max_value.param_name }}"
                                     value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}">
                             </div>

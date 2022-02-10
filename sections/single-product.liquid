@@ -109,56 +109,72 @@
     </div>
 </div>
 <!-- single-product-wrape start here  -->
-<!-- Gerelateerde producten area start here  -->
-<div class="gerelateerde-producten">
-    <div class="container">
-        <h2 class="section-title">Gerelateerde producten</h2>
-        <div class="row">
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                <div class="single-product-grid">
-                    <div class="product-thumbnail">
-                        <a href="single-product.html"><img src="assets/images/product-1.png" alt="product" /></a>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title"><a href="single-product.html">Akoestisch Bureaupaneel</a></h3>
-                        <h5 class="sub-title"><span>€</span> 367.00</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                <div class="single-product-grid">
-                    <div class="product-thumbnail">
-                        <a href="single-product.html"><img src="assets/images/product-1.png" alt="product" /></a>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title"><a href="single-product.html">Akoestisch Bureaupaneel</a></h3>
-                        <h5 class="sub-title"><span>€</span> 367.00</h5>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                <div class="single-product-grid">
-                    <div class="product-thumbnail">
-                        <a href="single-product.html"><img src="assets/images/product-1.png" alt="product" /></a>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title"><a href="single-product.html">Akoestisch Bureaupaneel</a></h3>
-                        <h5 class="sub-title"><span>€</span> 367.00</h5>
+
+
+
+<div class="product-recommendations"
+    data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=4">
+    {%- if recommendations.performed and recommendations.products_count > 0 -%}
+    <!-- Gerelateerde producten area start here  -->
+    <div class="gerelateerde-producten"
+        data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=4">
+        <div class="container">
+            <h2 class="section-title">Gerelateerde producten</h2>
+            <div class="row">
+                {%- for product in recommendations.products -%}
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                    <div class="single-product-grid">
+                        <div class="product-thumbnail">
+                            <a href="{{ product.url }}"><img src="{{ product.featured_image | img_url: '' }}"
+                                    alt="product" /></a>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title"><a href="{{ product.url }}">{{ product.title }}</a></h3>
+                            <h5 class="sub-title">{{ product.price | money }}</h5>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
-                <div class="single-product-grid">
-                    <div class="product-thumbnail">
-                        <a href="single-product.html"><img src="assets/images/product-1.png" alt="product" /></a>
-                    </div>
-                    <div class="product-info">
-                        <h3 class="product-title"><a href="single-product.html">Akoestisch Bureaupaneel</a></h3>
-                        <h5 class="sub-title"><span>€</span> 367.00</h5>
-                    </div>
-                </div>
+                {%- endfor -%}
+
             </div>
         </div>
     </div>
+    <!-- Gerelateerde producten area end here  -->
+    {%- endif -%}
 </div>
-<!-- Gerelateerde producten area end here  -->
+
+{% javascript %}
+  const handleIntersection = (entries, observer) => {
+    if (!entries[0].isIntersecting) return;
+
+    observer.unobserve(productRecommendationsSection);
+
+    const url = productRecommendationsSection.dataset.url;
+
+    fetch(url)
+      .then(response => response.text())
+      .then(text => {
+        const html = document.createElement('div');
+        html.innerHTML = text;
+        const recommendations = html.querySelector('.product-recommendations');
+
+        if (recommendations && recommendations.innerHTML.trim().length) {
+          productRecommendationsSection.innerHTML = recommendations.innerHTML;
+        }
+      })
+      .catch(e => {
+        console.error(e);
+      });
+  };
+
+  const productRecommendationsSection = document.querySelector('.product-recommendations');
+  const observer = new IntersectionObserver(handleIntersection, {rootMargin: '0px 0px 200px 0px'});
+
+  observer.observe(productRecommendationsSection);
+{% endjavascript %}
+{% schema %}
+  {
+    "name": "Product recommendations",
+    "settings": []
+  }
+{% endschema %}

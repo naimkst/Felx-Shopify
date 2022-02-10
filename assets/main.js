@@ -99,19 +99,31 @@
     /*-------------------------------------------
     js price range mobile
     --------------------------------------------- */
-    $(function () {
-      $("#slider-range-m").slider({
-        range: true,
-        min: 0,
-        max: 500,
-        values: [75, 300],
-        slide: function (event, ui) {
-          $("#amount1-m").val("€" + ui.values[0]);
-          $("#amount2-m").val("€" + ui.values[1]);
-        }
+    $(document).ready(function () {
+      var maxPricem = $('#max_price_amountss-m').attr("data-maxm");
+      var curencySymbolm = $('#curency_symble-m').attr("data-symbolm");
+      var curentMinm = $('#amount1-m').attr("curent-minm");
+      var curentMaxm = $('#amount2-m').attr("curent-maxm");
+      $(function () {
+        console.log(parseInt(maxPricem));
+        $("#slider-range-m").slider({
+          range: true,
+          min: 0,
+          max: parseInt(maxPricem),
+          values: [
+            curentMinm ? parseInt(curentMinm) : 0,
+            curentMaxm ? parseInt(curentMaxm) : maxPricem
+          ],
+          slide: function (event, ui) {
+
+            $("#amount1-m").val(curencySymbolm + ui.values[0]);
+            $("#amount2-m").val(curencySymbolm + ui.values[1]);
+          }
+
+        });
+        $("#amount1-m").val(curencySymbolm + $("#slider-range-m").slider("values", 0));
+        $("#amount2-m").val(curencySymbolm + $("#slider-range-m").slider("values", 1));
       });
-      $("#amount1-m").val("€" + $("#slider-range-m").slider("values", 0));
-      $("#amount2-m").val("€" + $("#slider-range-m").slider("values", 1));
     });
     /*-------------------------------------------
     js counterUp

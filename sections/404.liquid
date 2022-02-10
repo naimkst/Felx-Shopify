@@ -1,0 +1,71 @@
+<!-- hero banner area start here  -->
+<div class="hero-banner-area">
+    {% if section.settings.not_background_image %}
+        <style>
+            .hero-banner-area {
+                background-image: -webkit-gradient(linear, left bottom, left top, from(rgba(0, 0, 0, 0.7)), to(rgba(82, 78, 78, 0.5))), url({{ section.settings.not_background_image | img_url: ''}});
+                background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(82, 78, 78, 0.5)), url({{ section.settings.not_background_image | img_url: ''}});
+
+            }
+        </style>
+    {% endif %}
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-7 col-lg-10">
+                {% if section.settings.not_title %}
+                <h1 class="banner-title">{{ section.settings.not_title }}</h1>
+                {% endif %}
+
+                {% if section.settings.not_slug %}
+                    {{ section.settings.not_slug }}
+                {% endif %}
+
+                {% if section.settings.not_button_title %}
+                    <a href="{{ section.settings.not_button_url }}" class="button-white-black">{{ section.settings.not_button_title }}</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- hero banner area end here  -->
+
+{% schema %}
+{
+    "name": "404 Section",
+    "settings":[
+        {
+            "type": "image_picker",
+            "id": "not_background_image",
+            "label": "404 Background Image"
+        },
+        {
+            "type": "text",
+            "id": "not_title",
+            "label": "404 Title",
+            "default": "Webshop Flex Projects"
+        },
+        {
+            "type": "richtext",
+            "id": "not_slug",
+            "label": "404 Slug",
+            "default": "<p>Wij hebben voor u een selectie gemaakt, maar wij hebben nog veel meer! O.a. Herman Miller, Vitra, Interstuhl, Gispen en Normann Copenhagen.</p>"
+        },
+        {
+            "type": "text",
+            "id": "not_button_title",
+            "label": "404 Button Text",
+            "default": "Vul hier uw specifieke wens in"
+        },
+        {
+            "type": "url",
+            "id": "not_button_url",
+            "label": "404 Button Link"
+        }
+    ],
+    "presets": [
+      {
+        "name": "404 Section"
+      }
+    ]
+}
+{% endschema %}

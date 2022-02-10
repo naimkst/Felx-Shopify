@@ -1,0 +1,46 @@
+<div class="section-header">
+    <div class="container">
+        <div class="section-header-wrap">
+            <p class="header-text">Vraag hier uw unieke kortingscode aan!</p>
+            <a href="#" class="outlne-btn">Korting aanvragen</a>
+            <button class="finter-button d-block d-md-none">Filters</button>
+        </div>
+    </div>
+</div>
+
+{% render 'mobile-filter' %}
+
+
+<!-- filter-box area end here  -->
+<!-- main-product-section area start here  -->
+<div class="main-product-section">
+    <div class="container">
+        <div class="row">
+            {% render 'product-filter' %}
+
+            <div class="col-lg-9 col-md-8">
+                <h2 class="section-title">{{ collection.title }}</h2>
+                <div class="row">
+                    {% assign products_by_price = collection.products %}
+                    {% assign collection = collection %}
+                    {% for product in products_by_price %}
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="single-product-grid">
+                            <div class="product-thumbnail">
+                                <a href="{{ product.url }}"><img src="{{ product.featured_image.src | img_url: '' }}"
+                                        alt="product" /></a>
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title"><a href="{{ product.url }}">{{ product.title }}</a></h3>
+                                <h5 class="sub-title">{{ product.price | money }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- main-product-section area end here  -->

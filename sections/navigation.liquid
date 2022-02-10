@@ -28,10 +28,13 @@
                 {%endif %}
             </div>
             <div class="topbar-left">
-                <a href="#" class="cart-link">
-                    {% if section.settings.cart_text %}
-                        <span>{{ section.settings.cart_text }}</span>
-                    {% endif %}
+                <a href="#" class="cart-link" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
+                    
+                        <span class="cart-count">{{ cart.item_count }}</span>
+                        {% if section.settings.cart_text %}
+                            <span>{{ section.settings.cart_text }}</span>
+                        {% endif %}
+
                     <img class="icon" src="{{ 'cart-icon.svg' | asset_url }}" alt="image" />
                 </a>
             </div>
@@ -53,8 +56,9 @@
                 {% endif %}
             </a>
             <div class="cart-toggle-menu">
-                <a href="#" class="cart-link d-block d-lg-none">
-                    <img class="icon" src="assets/cart-icon.svg" alt="image" />
+                <a href="#" class="cart-link d-block d-lg-none" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
+                    <span class="cart-count">{{ cart.item_count }}</span>
+                    <img class="icon" src="{{ 'cart-icon.svg' | asset_url }}" alt="image" />
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"

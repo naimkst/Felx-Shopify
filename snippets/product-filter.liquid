@@ -1,0 +1,105 @@
+<div class="col-lg-3 col-md-4 d-none d-md-block">
+    <aside class="sidebar-area">
+        <div class="active-filters">
+            {%- for filter in collection.filters -%}
+            {%- if filter.type == "price_range" -%}
+            {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
+            <a class="active-filters__remove-filter" href="{{ filter.url_to_remove }}">
+                {%- assign min_value = filter.min_value.value | default: 0 -%}
+                {%- assign max_value = filter.max_value.value | default: filter.range_max -%}
+                {{ min_value | money }} - {{ max_value | money }} X
+            </a>
+            {%- endif -%}
+            {%- else -%}
+            {%- for filter_value in filter.active_values -%}
+            <a class="active-filters__remove-filter" href="{{ filter_value.url_to_remove }}">
+                {{ filter_value.label }} <i class="close-filter-item fas fa-times"></i>
+            </a>
+            {%- endfor -%}
+            {%- endif- %}
+            {%- endfor -%}
+            <a href="{{ collection.url }}?sort_by={{ collection.sort_by }}"
+                class="active-filters__clear form-check-label">Clear all Filter</a>
+        </div>
+
+        <form class="filter-form" id="filterFrom">
+            <div class="single-widget category-widget">
+                <h3 class="widget-title">Categorieën</h3>
+                <div class="form-check-list">
+                    {% for pdcollection in collections %}
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="{{ pdcollection.id }}" {% if
+                            pdcollection.url==collection.url %} checked {% endif %} />
+                        <label class="form-check-label" for="{{ pdcollection.id }}">
+                            <a href="{{pdcollection.url}}">
+                                {{ pdcollection.title }}
+                            </a>
+                        </label>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            {%- for filter in collection.filters -%}
+                <div class="single-widget">
+                    <h3 class="widget-title">{{ filter.label }}</h3>
+
+                    {%- case filter.type -%}
+                    {%- when 'list' -%}
+                    {%- for filter_value in filter.values -%}
+                    <div class="form-check-list">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox"
+                                id="Filter-{{ filter.param_name }}-{{ forloop.index }}" name="{{ filter_value.param_name }}"
+                                value="{{ filter_value.value }}" {% if filter_value.active==true %} checked {% endif %} />
+                            <label class="form-check-label" for="Filter-{{ filter.param_name }}-{{ forloop.index }}">
+                                {{ filter_value.label }}
+                            </label>
+                        </div>
+                    </div>
+                    {%- endfor -%}
+                    <div class="filter-group-display__submit">
+                        <input type="submit" value="Apply">
+                    </div>
+
+                    {%- when 'price_range' -%}
+                    <div class="single-widget">
+                        <h3 class="widget-title">
+                            <font style="vertical-align: inherit;">
+                                <font style="vertical-align: inherit;">
+                                    Price
+                                </font>
+                            </font>
+                        </h3>
+
+                        <div class="price-range">
+                            <div class="price-amount">
+                                <input type="hidden" id="max_price_amountss"
+                                    data-max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                                    type="text" value="{{ filter.range_max | money_without_currency | replace: ',', '' }}">
+                                <input type="hidden" id="curency_symble" data-symbol="{{ cart.currency.symbol }}"
+                                    type="text">
+                                <input type="text"
+                                    curent-min="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"
+                                    id="amount1" name="{{ filter.min_value.param_name }}"
+                                    value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}">
+                                <input type="text"
+                                    curent-max="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"
+                                    id="amount2" name="{{ filter.max_value.param_name }}"
+                                    value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}">
+                            </div>
+                            <div id="slider-range"
+                                class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="filter-group-display__submit">
+                        <input type="submit" value="Apply">
+                    </div>
+                    {%- endcase -%}
+                </div>
+            {%- endfor -%}
+        </form>
+    </aside>
+</div>

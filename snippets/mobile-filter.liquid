@@ -1,0 +1,121 @@
+<!-- filter-box area start here  -->
+
+<!-- filter-box area start here  -->
+<div class="filter-box">
+    <div class="filter-box-wrap">
+        <div class="filter-box-top">
+            <div class="filter-box-header">
+                <button class="close-filter"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="filter-box-body">
+                <form action="#">
+                    <div class="accordion filter-accordion" id="accordionFilter">
+
+                        <div class="accordion-item single-widget category-widget">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button widget-title collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
+                                    aria-controls="collapseOne">
+                                    Categorieën
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                                data-bs-parent="#accordionFilter">
+                                <div class="accordion-body">
+                                    <div class="form-check-list">
+                                        {% for pdcollection in collections %}
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="{{ pdcollection.id }}"
+                                                {% if pdcollection.url==collection.url %} checked {% endif %} />
+                                            <label class="form-check-label" for="{{ pdcollection.id }}">
+                                                <a href="{{pdcollection.url}}">
+                                                    {{ pdcollection.title }}
+                                                </a>
+                                            </label>
+                                        </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        {%- for filter in collection.filters -%}
+                        <div class="accordion-item single-widget">
+                            <h2 class="accordion-header" id="heading{{ forloop.index }}">
+                                <button class="accordion-button widget-title collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapse{{ forloop.index }}"
+                                    aria-expanded="false" aria-controls="collapse{{ forloop.index }}">
+                                    {{ filter.label }}
+                                </button>
+                            </h2>
+                            <div id="collapse{{ forloop.index }}" class="accordion-collapse collapse"
+                                aria-labelledby="heading{{ forloop.index }}" data-bs-parent="#accordionFilter">
+                                <div class="accordion-body">
+
+                                    {%- case filter.type -%}
+                                    {%- when 'list' -%}
+                                    {%- for filter_value in filter.values -%}
+                                    <div class="form-check-list">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox"
+                                                id="Filter-{{ filter.param_name }}-{{ forloop.index }}"
+                                                name="{{ filter_value.param_name }}" value="{{ filter_value.value }}" {%
+                                                if filter_value.active==true %} checked {% endif %} />
+                                            <label class="form-check-label"
+                                                for="Filter-{{ filter.param_name }}-{{ forloop.index }}">
+                                                {{ filter_value.label }}
+                                            </label>
+                                        </div>
+                                    </div>
+                                    {%- endfor -%}
+                                    <div class="filter-group-display__submit">
+                                        <input type="submit" value="Apply">
+                                    </div>
+
+                                    {%- when 'price_range' -%}
+                                    <div class="single-widget">
+                                       
+
+                                        <div class="price-range">
+                                            <div class="price-amount">
+                                                <input type="hidden" id="max_price_amountss"
+                                                    data-max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                                                    type="text"
+                                                    value="{{ filter.range_max | money_without_currency | replace: ',', '' }}">
+                                                <input type="hidden" id="curency_symble"
+                                                    data-symbol="{{ cart.currency.symbol }}" type="text">
+                                                <input type="text"
+                                                    curent-min="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"
+                                                    id="amount1" name="{{ filter.min_value.param_name }}"
+                                                    value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}">
+                                                <input type="text"
+                                                    curent-max="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"
+                                                    id="amount2" name="{{ filter.max_value.param_name }}"
+                                                    value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}">
+                                            </div>
+                                            <div id="slider-range"
+                                                class="ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="filter-group-display__submit">
+                                        <input type="submit" value="Apply">
+                                    </div>
+                                    {%- endcase -%}
+
+                                </div>
+                            </div>
+                        </div>
+                        {%- endfor -%}
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="filter-box-footer">
+            <p class="total-count">Toon {{ collection.products.count }} resultaten</p>
+        </div>
+    </div>
+</div>
+<!-- filter-box area end here  -->

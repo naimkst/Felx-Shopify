@@ -1,0 +1,164 @@
+<script> window.product = {{ product | json }} || {} </script>
+<script type="application/json"> {{ product.variants | json }} </script>
+<!-- single-product-wrape start here  -->
+<div class="single-product-wrape">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="product-image">
+                    <div class="product-big-thumbail">
+                        {% for image in product.images %}
+                        <div class="single-image">
+                            <img src="{{ image.src | img_url: '' }}" alt="product image" />
+                        </div>
+                        {% endfor %}
+                        
+                    </div>
+                    <div class="product-small-thumbail">
+                        {% for image in product.images %}
+                        <div class="single-image">
+                            <img src="{{ image.src | img_url: '' }}" alt="product image" />
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="product-info">
+                    <h2 class="produt-title">{{ product.title }}</h2>
+                    <h4 class="product-price"><span>{{ product.price | money }}</span> 
+                        <!-- ex. BTW -->
+                    </h4>
+                    <form action="/cart/add" method="post" enctype="multipart/form-data" id="addToCart">
+                        <input type="hidden" class="variant-idss" id="variant-id" name="id" value="{{ product.variants.first.id }}">
+                        <button type="submit" class="count-text-btn skipChart" href="#"><span class="count-number">1</span><span class="button-text">In
+                                winkelmand</span></button>
+                    </form>
+                    <button type="submit" class="count-text-btn" href="#"><span class="count-number">1</span><span
+                            class="button-text">Offerte aanvragen</span></button>
+                    <h4 class="voorraad-text"><i class="fas fa-check"></i>Op voorraad</h4>
+                    <p class="product-content">{{ product.description }}</p>
+                    <div class="accordion product-acorion" id="accordionExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    Product informatie
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <div class="product-informatie-content">
+                                        <div class="single-info"><span class="title">Model:</span> Aeron Graphite</div>
+                                        <div class="single-info"><span class="title">Merk:</span> Herman Miller‍</div>
+                                        <div class="single-info"><span class="title">Ontwerper:</span> Bill Stumpf en
+                                            Don Chadwick </div>
+                                        <div class="single-info">
+                                            <h4 class="title">Kleuren:</h4>
+                                            <ul>
+                                                <li>Frame: Graphite</li>
+                                                <li>Zitting: Graphite</li>
+                                                <li>Rug: Graphite</li>
+                                            </ul>
+                                        </div>
+                                        <div class="single-info">
+                                            <h4 class="title">Specificaties: </h4>
+                                            <ul>
+                                                <li>- 4D armleggers</li>
+                                                <li>- Lumbaalsteun</li>
+                                                <li>- Kraswerende wielen</li>
+                                                <li>- Pellicle zitting</li>
+                                                <li>- Pellicle rugleuning</li>
+                                            </ul>
+                                        </div>
+                                        <div class="single-info">
+                                            <h4 class="title">Afmetingen:</h4>
+                                            <ul>
+                                                <li>Stoelmaten: 68 x 41-47 x 107 cm (BxDxH)</li>
+                                                <li>Zithoogte: 38 - 58 cm</li>
+                                                <li>Zitdiepte: 41 - 47 cm</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Neem contact op
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    <p>Als u vragen heeft of wilt praten over een product, neem dan gerust contact met
+                                        ons op.</p>
+                                    <a href="mailto:info@flex-projects.nl"
+                                        class="contact-link">info@flex-projects.nl</a>
+                                    <a href="tel:0183741001" class="contact-link">0183-741001</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- single-product-wrape start here  -->
+<!-- Gerelateerde producten area start here  -->
+<div class="gerelateerde-producten">
+    <div class="container">
+        <h2 class="section-title">Gerelateerde producten</h2>
+        <div class="row">
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                <div class="single-product-grid">
+                    <div class="product-thumbnail">
+                        <a href="single-product.html"><img src="assets/images/product-1.png" alt="product" /></a>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title"><a href="single-product.html">Akoestisch Bureaupaneel</a></h3>
+                        <h5 class="sub-title"><span>€</span> 367.00</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                <div class="single-product-grid">
+                    <div class="product-thumbnail">
+                        <a href="single-product.html"><img src="assets/images/product-1.png" alt="product" /></a>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title"><a href="single-product.html">Akoestisch Bureaupaneel</a></h3>
+                        <h5 class="sub-title"><span>€</span> 367.00</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                <div class="single-product-grid">
+                    <div class="product-thumbnail">
+                        <a href="single-product.html"><img src="assets/images/product-1.png" alt="product" /></a>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title"><a href="single-product.html">Akoestisch Bureaupaneel</a></h3>
+                        <h5 class="sub-title"><span>€</span> 367.00</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6">
+                <div class="single-product-grid">
+                    <div class="product-thumbnail">
+                        <a href="single-product.html"><img src="assets/images/product-1.png" alt="product" /></a>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title"><a href="single-product.html">Akoestisch Bureaupaneel</a></h3>
+                        <h5 class="sub-title"><span>€</span> 367.00</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Gerelateerde producten area end here  -->

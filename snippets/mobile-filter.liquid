@@ -77,16 +77,20 @@
                                     <div class="single-widget">
                                         <div class="price-range">
                                             <div class="price-amount">
-                                                <input type="hidden" id="max_price_amountss-m" data-maxm="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
+                                                
+                                                <input type="hidden" id="max_price_amountss-m" data-max-m="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
                                                     type="text"
                                                     value="{{ filter.range_max | money_without_currency | replace: ',', '' }}">
-                                                <input type="hidden" id="curency_symble-m"
-                                                    data-symbol="{{ cart.currency.symbol }}" type="text">
-                                                <input type="text" curent-minm="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"
+                                                
+                                                    <input type="hidden" id="curency_symble-m"
+                                                    data-symbol-m="{{ cart.currency.symbol }}" type="text">
+                                                
+                                                    <input type="text" curent-min-m="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"
                                                     id="amount1-m" name="{{ filter.min_value.param_name }}"
                                                     value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}">
-                                                <input type="text"
-                                                    curent-max="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"
+                                                
+                                                    <input type="text"
+                                                    curent-max-m="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"
                                                     id="amount2-m" name="{{ filter.max_value.param_name }}"
                                                     value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}">
                                             </div>
@@ -96,7 +100,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="filter-group-display__submit">
+                                    <div class="filter-group-display__submit price-ally-btn">
                                         <input type="submit" value="Apply">
                                     </div>
                                     {%- endcase -%}

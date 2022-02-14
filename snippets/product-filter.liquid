@@ -1,6 +1,6 @@
 <div class="col-lg-3 col-md-4 d-none d-md-block">
     <aside class="sidebar-area">
-        <div class="active-filters">
+        <!-- <div class="active-filters">
             {%- for filter in collection.filters -%}
             {%- if filter.type == "price_range" -%}
             {%- if filter.min_value.value != nil or filter.max_value.value != nil -%}
@@ -20,7 +20,7 @@
             {%- endfor -%}
             <a href="{{ collection.url }}?sort_by={{ collection.sort_by }}"
                 class="active-filters__clear form-check-label">Clear all Filter</a>
-        </div>
+        </div> -->
 
         <form class="filter-form" id="filterFrom">
             <div class="single-widget category-widget">
@@ -49,7 +49,7 @@
                     {%- for filter_value in filter.values -%}
                     <div class="form-check-list">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox"
+                            <input onchange="this.form.submit()" class="form-check-input" type="checkbox"
                                 id="Filter-{{ filter.param_name }}-{{ forloop.index }}" name="{{ filter_value.param_name }}"
                                 value="{{ filter_value.value }}" {% if filter_value.active==true %} checked {% endif %} />
                             <label class="form-check-label" for="Filter-{{ filter.param_name }}-{{ forloop.index }}">
@@ -58,9 +58,9 @@
                         </div>
                     </div>
                     {%- endfor -%}
-                    <div class="filter-group-display__submit">
+                    <!-- <div class="filter-group-display__submit">
                         <input type="submit" value="Apply">
-                    </div>
+                    </div> -->
 
                     {%- when 'price_range' -%}
                     <div class="single-widget">
@@ -70,13 +70,16 @@
                                 <input type="hidden" id="max_price_amountss"
                                     data-max="{{ filter.range_max | money_without_currency | replace: ',', '' }}"
                                     type="text" value="{{ filter.range_max | money_without_currency | replace: ',', '' }}">
-                                <input type="hidden" id="curency_symble" data-symbol="{{ cart.currency.symbol }}"
+                                
+                                    <input type="hidden" id="curency_symble" data-symbol="{{ cart.currency.symbol }}"
                                     type="text">
-                                <input type="text"
+                                
+                                    <input type="text"
                                     curent-minm="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}"
                                     id="amount1" name="{{ filter.min_value.param_name }}"
                                     value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}">
-                                <input type="text"
+                               
+                                    <input type="text"
                                     curent-maxm="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}"
                                     id="amount2" name="{{ filter.max_value.param_name }}"
                                     value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}">

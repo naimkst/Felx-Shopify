@@ -1,0 +1,141 @@
+<!-- header area end here  -->
+<div class="offerte-gegevens-area section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="primary-form">
+                    <div class="form-title">General information</div>
+                    <form action="#">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <select class="form-select form-control">
+                                        <option value="1">Private</option>
+                                        <option value="2">For Business</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="firstName" name="firstName"
+                                        placeholder="First Name" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="lastName" name="lastName"
+                                        placeholder="Last name" />
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" id="email" name="email"
+                                        placeholder="E-mail" required />
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <input type="tel" class="form-control" id="Telephone" name="Telephone"
+                                        placeholder="Telephone" />
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="form-group">
+                                    <input type="tel" class="form-control" id="Mobile" name="Mobile"
+                                        placeholder="Mobile" />
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <textarea class="form-control describe-box" id="Describe" name="Describe" rows="3"
+                                        placeholder="Describe your preferences"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="offerte-right offcanvas-cart">
+                    <div class="item-list-scroll">
+                        {% for item in cart.items %}
+                            <div class="cart-item-list">
+                                <div class="single-card-item">
+                                    <div class="product-image">
+                                        <img src="{{ item | img_url: '' }}"
+                                            alt="item">
+                                    </div>
+                                    <div class="product-info">
+                                        <h4 class="product-name">{{ item.product.title }}</h4>
+                                    </div>
+                                    <div class="product-qty">
+                                        <button class="dec qty-btn">-</button>
+                                        <input class="qty-input" type="text" title="Quantity" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" readonly />
+                                        <button class="inc qty-btn">+</button>
+                                    </div>
+                                    <div class="product-price">
+                                        <h4 class="price">{{ item.line_price | money }}</h4>
+                                    </div>
+                                    <button id="remove1" data-id="1" class="close-item"><i class="fas fa-times"></i></button>
+                                </div>
+        
+                            </div>
+                        {% endfor %}
+                        
+                        <div class="sub-total-area">
+                            <h4 class="subtotal-title">subtotal</h4>
+                            <span class="subtotal-price">{{ cart.total_price | money }}</span>
+                        </div>
+                    </div>
+
+                    <div class="buttons">
+                        <button class="outlne-btn">request</button>
+                        <button class="outlne-btn bg-solid">Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- footer area start here  -->
+
+{% schema %}
+{
+    "name": "Request Quote",
+    "settings":[
+        {
+            "type": "image_picker",
+            "id": "hero_background_image",
+            "label": "Hero Background Image"
+        },
+        {
+            "type": "text",
+            "id": "hero_title",
+            "label": "Hero Title",
+            "default": "Webshop Flex Projects"
+        },
+        {
+            "type": "richtext",
+            "id": "hero_slug",
+            "label": "Hero Slug",
+            "default": "<p>Wij hebben voor u een selectie gemaakt, maar wij hebben nog veel meer! O.a. Herman Miller, Vitra, Interstuhl, Gispen en Normann Copenhagen.</p>"
+        },
+        {
+            "type": "text",
+            "id": "hero_button_title",
+            "label": "Hero Button Text",
+            "default": "Vul hier uw specifieke wens in"
+        },
+        {
+            "type": "url",
+            "id": "hero_button_url",
+            "label": "Hero Button Link"
+        }
+    ],
+    "presets": [
+      {
+        "name": "Request Quote"
+      }
+    ]
+}
+{% endschema %}

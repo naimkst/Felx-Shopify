@@ -2047,6 +2047,79 @@ scrollUp
 .sidebar-area .single-widget .form-check-list .form-check .form-check-input:checked ~ .form-check-label a {
   color: #1A1818;
 }
+
+/*-------------------------
+#.primary-form
+--------------------------*/
+.primary-form {
+  background-color: #F8F8F8;
+  padding: 6rem;
+  border-radius: .5rem;
+  -webkit-box-shadow: 1px 1px 3px 0 #e7e7e7;
+          box-shadow: 1px 1px 3px 0 #e7e7e7;
+}
+.primary-form .form-title {
+  margin-bottom: 2.5rem;
+  font-size: 3.2rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  color: #141414;
+}
+.primary-form .form-group {
+  margin-bottom: 2rem;
+}
+.primary-form .form-group .form-control {
+  width: 100%;
+  height: 5.6rem;
+  border-radius: 0;
+  background-color: transparent;
+  padding: 1rem 1.5rem;
+  font-family: "Silka";
+  color: #262529;
+  font-size: 15px;
+  font-weight: 400;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: 1px solid #dad8d8;
+}
+.primary-form .form-group .form-control::-webkit-input-placeholder {
+  color: #262529;
+  opacity: 1;
+}
+.primary-form .form-group .form-control:-ms-input-placeholder {
+  color: #262529;
+  opacity: 1;
+}
+.primary-form .form-group .form-control::-ms-input-placeholder {
+  color: #262529;
+  opacity: 1;
+}
+.primary-form .form-group .form-control::placeholder {
+  color: #262529;
+  opacity: 1;
+}
+.primary-form .form-group .form-control:-ms-input-placeholder {
+  color: #262529;
+}
+.primary-form .form-group .form-control::-ms-input-placeholder {
+  color: #262529;
+}
+.primary-form .form-group .form-control:focus {
+  border-color: #1A1919;
+}
+.primary-form .form-group .describe-box {
+  height: 20rem;
+  resize: none;
+}
+.outlne-btn.bg-solid {
+  background-color: var(--black);
+  color: var(--white);
+}
+.outlne-btn.bg-solid:hover {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+  color: var(--white);
+}
 /*-------------------------
 #.offcanvas-cart
 --------------------------*/
@@ -2241,4 +2314,94 @@ scrollUp
   width: 100%;
   height: 300px !important;
   object-fit: cover;
+}
+
+/*-------------------------
+#.offerte-gegevens-area
+--------------------------*/
+.offerte-right {
+  padding: 2rem;
+  background-color: #F8F8F8;
+  border-radius: .5rem;
+  -webkit-box-shadow: 1px 1px 3px 0 #e7e7e7;
+          box-shadow: 1px 1px 3px 0 #e7e7e7;
+}
+.offerte-right .totalen-items {
+  margin: 0;
+  margin-bottom: 1.5rem;
+  padding: 0;
+}
+.offerte-right .totalen-items li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  list-style: none;
+  font-size: 1.6rem;
+  font-weight: 400;
+  text-transform: capitalize;
+  color: #828282;
+  padding: .5rem 0;
+}
+.offerte-right .totalen-items li:last-child {
+  border-top: 1px solid #dad8d8;
+}
+.offerte-right .totalen-items li strong {
+  color: #1A1818;
+  font-weight: 700;
+}
+.offerte-right .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.offerte-right .buttons .outlne-btn {
+  width: 48%;
+}
+
+@media (max-width: 991px) {
+  .offerte-right {
+    margin-top: 3rem;
+  }
+
+  .primary-form {
+    padding: 3rem;
+  }
+}
+@media (max-width: 575px) {
+  .primary-form .form-title {
+    font-size: 2.6rem;
+  }
+
+  .primary-form {
+    padding: 3rem 2rem;
+  }
+}
+@media (max-width: 360px) {
+  .primary-form .form-title {
+    font-size: 2.4rem;
+  }
+}
+.item-list-scroll {
+  height: 550px;
+  overflow-y: scroll;
+}
+.item-list-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.item-list-scroll {
+  -ms-overflow-style: none;  
+  scrollbar-width: none;  
 }

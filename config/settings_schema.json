@@ -55,7 +55,13 @@
         "id": "instagram",
         "default": "https://instagram.com",
         "label": "Instagram"
+      },
+      {
+        "type": "url",
+        "id": "request-quote",
+        "label": "Request Quote Link"
       }
+
     ]
   }
 ]

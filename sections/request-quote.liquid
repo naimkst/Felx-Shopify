@@ -52,10 +52,19 @@
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group">
+                                    {% for item in cart.items %}
+                                    <input type="hidden" class="form-control" id="product" name="contact[{{item.title}}]"
+                                        placeholder="{{ item.title }}" value="{{ shop.domain }}{{ item.url }}" />
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
                                     <textarea class="form-control describe-box" id="Describe" name="contact[description]" rows="3"
                                         placeholder="Describe your preferences"></textarea>
                                 </div>
                             </div>
+
                         </div>
                 </div>
             </div>

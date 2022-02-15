@@ -31,8 +31,11 @@
     </div>
     {% if cart.total_price > 0 %}
         <div class="offcanvas-boty-bottom">
-            <button href="#" type="submit" name="update" class="checkout-btn update updateSkipBtn">Update</button>
-            <button href="#" type="submit" name="checkout" class="checkout-btn">checkout</button>
+            <div class="d-flex align-center">
+                <button href="#" type="submit" name="update" class="checkout-btn update updateSkipBtn w-50 me-1">Update</button>
+                <button href="#" type="submit" name="checkout" class="checkout-btn w-50 ms-1">checkout</button>
+            </div>
+            <a href="#" type="submit" name="update" class="checkout-btn update updateSkipBtn mt-3">Request Quote</a>
         </div>
     {% endif %}
 </div>

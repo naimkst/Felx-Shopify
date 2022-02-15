@@ -2286,7 +2286,6 @@ scrollUp
   text-transform: capitalize;
   color: var(--white);
   border: none;
-  margin: 10px 0
 }
 .offcanvas-cart .checkout-btn:last-child {
   margin-bottom: 0;

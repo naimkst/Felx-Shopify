@@ -1,58 +1,62 @@
 <!-- header area end here  -->
+{% form 'contact', enctype: 'multipart/form-data' %}
+
 <div class="offerte-gegevens-area section">
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
                 <div class="primary-form">
-                    <div class="form-title">General information</div>
-                    <form action="#">
+                    <div class="form-title">{{ section.settings.contact_form_title }}</div>
+
+                    {% if form.posted_successfully? %} Thank you for your contact {% endif %}
+                    {{ form.errors | default_errors }}
+
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <select class="form-select form-control">
-                                        <option value="1">Private</option>
-                                        <option value="2">For Business</option>
+                                    <select class="form-select form-control" name="contact[owner]">
+                                        <option value="Private">Private</option>
+                                        <option value="For Business">For Business</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="firstName" name="firstName"
+                                    <input type="text" class="form-control" id="firstName" name="contact[first_name]"
                                         placeholder="First Name" />
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="lastName" name="lastName"
+                                    <input type="text" class="form-control" id="lastName" name="contact[last_name]"
                                         placeholder="Last name" />
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <input type="email" class="form-control" id="email" name="email"
+                                    <input type="email" class="form-control" id="email" name="contact[email]"
                                         placeholder="E-mail" required />
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="form-group">
-                                    <input type="tel" class="form-control" id="Telephone" name="Telephone"
+                                    <input type="tel" class="form-control" id="Telephone" name="contact[telephone]"
                                         placeholder="Telephone" />
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="form-group">
-                                    <input type="tel" class="form-control" id="Mobile" name="Mobile"
+                                    <input type="tel" class="form-control" id="Mobile" name="contact[mobile]"
                                         placeholder="Mobile" />
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-group">
-                                    <textarea class="form-control describe-box" id="Describe" name="Describe" rows="3"
+                                    <textarea class="form-control describe-box" id="Describe" name="contact[description]" rows="3"
                                         placeholder="Describe your preferences"></textarea>
                                 </div>
                             </div>
                         </div>
-                    </form>
                 </div>
             </div>
             <div class="col-lg-4">
@@ -87,49 +91,33 @@
                             <span class="subtotal-price">{{ cart.total_price | money }}</span>
                         </div>
                     </div>
-
-                    <div class="buttons">
-                        <button class="outlne-btn">request</button>
-                        <button class="outlne-btn bg-solid">Checkout</button>
-                    </div>
+                    <form action="/cart" method="post" id="cartUpdate" >
+                        {% if cart.total_price > 0 %}
+                            <div class="buttons">
+                                <button type="submit" class="outlne-btn">request</button>
+                                <button type="submit" name="checkout" class="outlne-btn bg-solid">Checkout</button>
+                            </div>
+                        {% endif %}
+                    </form>
+                    
                 </div>
             </div>
         </div>
     </div>
 </div>
 <!-- footer area start here  -->
+{%- endform -%}
 
 {% schema %}
 {
     "name": "Request Quote",
     "settings":[
-        {
-            "type": "image_picker",
-            "id": "hero_background_image",
-            "label": "Hero Background Image"
-        },
+        
         {
             "type": "text",
-            "id": "hero_title",
-            "label": "Hero Title",
-            "default": "Webshop Flex Projects"
-        },
-        {
-            "type": "richtext",
-            "id": "hero_slug",
-            "label": "Hero Slug",
-            "default": "<p>Wij hebben voor u een selectie gemaakt, maar wij hebben nog veel meer! O.a. Herman Miller, Vitra, Interstuhl, Gispen en Normann Copenhagen.</p>"
-        },
-        {
-            "type": "text",
-            "id": "hero_button_title",
-            "label": "Hero Button Text",
-            "default": "Vul hier uw specifieke wens in"
-        },
-        {
-            "type": "url",
-            "id": "hero_button_url",
-            "label": "Hero Button Link"
+            "id": "contact_form_title",
+            "label": "Form Title",
+            "default": "General Information"
         }
     ],
     "presets": [

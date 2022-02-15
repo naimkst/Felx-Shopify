@@ -1,3 +1,6 @@
 {
-  "recommendations": ["shopify.theme-check-vscode"]
+  "recommendations": [
+    "shopify.theme-check-vscode",
+    "formulahendry.auto-close-tag"
+  ]
 }

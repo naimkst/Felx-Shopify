@@ -4,8 +4,8 @@
     "theme_name": "Flex",
     "theme_version": "1.0.0",
     "theme_author": "Shopify",
-    "theme_documentation_url": "https://help.shopify.com/en/manual/online-store/themes",
-    "theme_support_url": "https://support.shopify.com/"
+    "theme_documentation_url": "https:\/\/help.shopify.com\/en\/manual\/online-store\/themes",
+    "theme_support_url": "https:\/\/support.shopify.com\/"
   },
   {
     "name": "Global Settings",
@@ -35,25 +35,25 @@
       {
         "type": "text",
         "id": "youtube",
-        "default": "https://youtube.com",
+        "default": "https:\/\/youtube.com",
         "label": "Youtube"
       },
       {
         "type": "text",
         "id": "printerest",
-        "default": "https://printerest.com",
+        "default": "https:\/\/printerest.com",
         "label": "Printerest"
       },
       {
         "type": "text",
         "id": "linkedin",
-        "default": "https://linkedin.com",
+        "default": "https:\/\/linkedin.com",
         "label": "Linkedin"
       },
       {
         "type": "text",
         "id": "instagram",
-        "default": "https://instagram.com",
+        "default": "https:\/\/instagram.com",
         "label": "Instagram"
       },
       {
@@ -61,7 +61,6 @@
         "id": "request-quote",
         "label": "Request Quote Link"
       }
-
     ]
   }
 ]

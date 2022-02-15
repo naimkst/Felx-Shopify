@@ -1,5 +1,6 @@
 {
   "current": {
+    "request-quote": "shopify:\/\/pages\/request-quote",
     "sections": {
       "header": {
         "type": "header",

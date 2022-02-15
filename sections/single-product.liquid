@@ -50,38 +50,7 @@
                             <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
                                 data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    <div class="product-informatie-content">
-                                        <div class="single-info"><span class="title">Model:</span> Aeron Graphite</div>
-                                        <div class="single-info"><span class="title">Merk:</span> Herman Miller‍</div>
-                                        <div class="single-info"><span class="title">Ontwerper:</span> Bill Stumpf en
-                                            Don Chadwick </div>
-                                        <div class="single-info">
-                                            <h4 class="title">Kleuren:</h4>
-                                            <ul>
-                                                <li>Frame: Graphite</li>
-                                                <li>Zitting: Graphite</li>
-                                                <li>Rug: Graphite</li>
-                                            </ul>
-                                        </div>
-                                        <div class="single-info">
-                                            <h4 class="title">Specificaties: </h4>
-                                            <ul>
-                                                <li>- 4D armleggers</li>
-                                                <li>- Lumbaalsteun</li>
-                                                <li>- Kraswerende wielen</li>
-                                                <li>- Pellicle zitting</li>
-                                                <li>- Pellicle rugleuning</li>
-                                            </ul>
-                                        </div>
-                                        <div class="single-info">
-                                            <h4 class="title">Afmetingen:</h4>
-                                            <ul>
-                                                <li>Stoelmaten: 68 x 41-47 x 107 cm (BxDxH)</li>
-                                                <li>Zithoogte: 38 - 58 cm</li>
-                                                <li>Zitdiepte: 41 - 47 cm</li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                    {{ product.metafields.my_fields.product_contract }}
                                 </div>
                             </div>
                         </div>
@@ -95,11 +64,7 @@
                             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                                 data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    <p>Als u vragen heeft of wilt praten over een product, neem dan gerust contact met
-                                        ons op.</p>
-                                    <a href="mailto:info@flex-projects.nl"
-                                        class="contact-link">info@flex-projects.nl</a>
-                                    <a href="tel:0183741001" class="contact-link">0183-741001</a>
+                                   {{ product.metafields.my_fields.product_information }}
                                 </div>
                             </div>
                         </div>

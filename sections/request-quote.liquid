@@ -71,43 +71,42 @@
             <div class="col-lg-4">
                 <div class="offerte-right offcanvas-cart">
                     <div class="item-list-scroll">
-                        {% for item in cart.items %}
-                            <div class="cart-item-list">
-                                <div class="single-card-item">
-                                    <div class="product-image">
-                                        <img src="{{ item | img_url: '' }}"
-                                            alt="item">
+                        {% if cart.item_count != 0 %}
+                            {% for item in cart.items %}
+                                <div class="cart-item-list">
+                                    <div class="single-card-item">
+                                        <div class="product-image">
+                                            <img src="{{ item | img_url: '' }}"
+                                                alt="item">
+                                        </div>
+                                        <div class="product-info">
+                                            <h4 class="product-name">{{ item.product.title }}</h4>
+                                        </div>
+                                        <div class="product-qty">
+                                            <button class="dec qty-btn">-</button>
+                                            <input class="qty-input" type="text" title="Quantity" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" readonly />
+                                            <button class="inc qty-btn">+</button>
+                                        </div>
+                                        <div class="product-price">
+                                            <h4 class="price">{{ item.line_price | money }}</h4>
+                                        </div>
+                                        <button id="remove1" data-id="1" class="close-item"><i class="fas fa-times"></i></button>
                                     </div>
-                                    <div class="product-info">
-                                        <h4 class="product-name">{{ item.product.title }}</h4>
-                                    </div>
-                                    <div class="product-qty">
-                                        <button class="dec qty-btn">-</button>
-                                        <input class="qty-input" type="text" title="Quantity" name="updates[]" id="updates_{{ item.key }}" value="{{ item.quantity }}" readonly />
-                                        <button class="inc qty-btn">+</button>
-                                    </div>
-                                    <div class="product-price">
-                                        <h4 class="price">{{ item.line_price | money }}</h4>
-                                    </div>
-                                    <button id="remove1" data-id="1" class="close-item"><i class="fas fa-times"></i></button>
                                 </div>
-        
-                            </div>
-                        {% endfor %}
+                            {% endfor %}
+                        {% else %}
+                            <p>Please add product to cart for better conversation support!</p>
+                        {% endif %}
                         
                         <div class="sub-total-area">
                             <h4 class="subtotal-title">subtotal</h4>
                             <span class="subtotal-price">{{ cart.total_price | money }}</span>
                         </div>
                     </div>
-                    <form action="/cart" method="post" id="cartUpdate" >
-                        {% if cart.total_price > 0 %}
-                            <div class="buttons">
-                                <button type="submit" class="outlne-btn">request</button>
-                                <!-- <button type="submit" name="checkout" class="outlne-btn bg-solid">Checkout</button> -->
-                            </div>
-                        {% endif %}
-                    </form>
+                    <div class="buttons">
+                        <button type="submit" class="outlne-btn bg-solid w-100">request</button>
+                        <!-- <button type="submit" name="checkout" class="outlne-btn bg-solid">Checkout</button> -->
+                    </div>
                     
                 </div>
             </div>

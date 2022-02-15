@@ -60,7 +60,14 @@
         "type": "url",
         "id": "request-quote",
         "label": "Request Quote Link"
+      },
+      {
+        "type": "text",
+        "id": "collection_request_quote_text",
+        "default": "Vraag hier uw unieke kortingscode aan!",
+        "label": "Request Quote Text"
       }
+      
     ]
   }
 ]

@@ -157,6 +157,13 @@
       $('input#quantity').val(newVal);
     });
 
+    // Quality Change
+    $('.count-number').change(function(e){
+        $('#itemqty').val(e.target.value);
+        console.log(e.target.value);
+    });
+    
+
     //Add To Cart
     $('.skipChart').on('click', function (e) {
       var form = $('#addToCart');

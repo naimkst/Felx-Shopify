@@ -694,6 +694,7 @@ scrollUp
           box-shadow: 2px 30px 50px 0 rgba(0, 0, 0, 0.6);
   padding: 0;
   border: none;
+  top: 58px;
 }
 .header-area .navbar .nav-item.dropdown .navigation-list {
   display: -webkit-box;
@@ -1336,6 +1337,8 @@ scrollUp
   text-transform: capitalize;
   -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
+  box-shadow: none;
+  border: none;
 }
 .count-text-btn:hover .button-text {
   background-color: #777777;

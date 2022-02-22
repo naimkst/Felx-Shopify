@@ -73,19 +73,20 @@
       var curentMin = $('#amount1').attr("curent-minm");
       var curentMax = $('#amount2').attr("curent-maxm");
 
-      console.log(parseInt(curentMin, curentMax));
+      console.log(curentMin, maxPrice);
       $(function () {
 
         $("#slider-range").slider({
           range: true,
           min: 0,
-          max: parseInt(maxPrice),
+          max: maxPrice,
           values: [
-            curentMin ? parseInt(curentMin) : 0,
-            curentMax ? parseInt(curentMax) : maxPrice
+            curentMin ? curentMin : 0,
+            curentMax == 0 ? maxPrice : curentMax
           ],
           slide: function (event, ui) {
 
+            console.log(ui)
             $("#amount1").val(curencySymbol + ui.values[0]);
             $("#amount2").val(curencySymbol + ui.values[1]);
           }
@@ -106,14 +107,13 @@
       var curentMinm = $('#amount1-m').attr("curent-min-m");
       var curentMaxm = $('#amount2-m').attr("curent-max-m");
       $(function () {
-        console.log(parseInt(maxPricem));
         $("#slider-range-m").slider({
           range: true,
           min: 0,
-          max: parseInt(maxPricem),
+          max: maxPricem,
           values: [
-            curentMinm ? parseInt(curentMinm) : 0,
-            curentMaxm ? parseInt(curentMaxm) : maxPricem
+            curentMinm ? curentMinm : 0,
+            curentMaxm == 0 ? maxPricem : curentMaxm
           ],
           slide: function (event, ui) {
 

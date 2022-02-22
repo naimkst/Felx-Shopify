@@ -19,8 +19,8 @@
       "type": "uitgelichte-product",
       "settings": {
         "uitgelichte_title": "Uitgelichte Producten",
-        "uitgelichte_product": "sofas",
-        "product_limit": 4
+        "uitgelichte_product": "bureaustoelen-1",
+        "product_limit": 6
       }
     },
     "cta": {

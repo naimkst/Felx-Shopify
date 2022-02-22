@@ -1,11 +1,10 @@
 {
   "current": {
-    "request-quote": "shopify:\/\/pages\/request-quote",
+    "request-quote": "https:\/\/www.flex-projects.nl\/product-korting",
     "sections": {
       "header": {
         "type": "header",
         "settings": {
-          "favicon": "shopify:\/\/shop_images\/606ed641c6a86916949e1605_FLX_transparant.png",
           "site_title": "Flex Projects"
         }
       },
@@ -20,8 +19,8 @@
       "footer": {
         "type": "footer",
         "settings": {
-          "footer_menu": "flex-projects",
-          "footer_Nieuws_menu": "nieuws",
+          "footer_menu": "",
+          "footer_Nieuws_menu": "",
           "sitemap_link": "",
           "copry_right": "© Flex Projects | Powered by Provision Media",
           "renewal_text": "Ready for renewal?",

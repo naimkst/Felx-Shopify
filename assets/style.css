@@ -658,7 +658,7 @@ scrollUp
   padding: 2rem 0;
   border-bottom: 1px solid #EAECEE;
 }
-.header-area.stick {
+.stick {
   position: fixed;
   width: 100%;
   left: 0;

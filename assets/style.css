@@ -2585,7 +2585,6 @@ form#login_form  input.btn {
         margin-top: 1.2rem;
     }
 }
-
 @media (max-width: 575px) {
     .header-area .navbar .nav-item.dropdown .navigation-list .single-navigation  .item-thumbnail {
         display: none;

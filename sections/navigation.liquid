@@ -87,8 +87,8 @@
                                         {% endfor %}
                                     </div>
                                     <div class="navigation-bottom-bar">
-                                        <a class="navigation-bottom-link" href="#"><span>Vraag hier uw unieke kortingscode aan!</span></a>
-                                        <a href="#" class="button-black-white">Korting aanvragen</a>
+                                        <a class="navigation-bottom-link" href="{{ settings.Vraag_hier_Link_Link }}"><span>Vraag hier uw unieke kortingscode aan!</span></a>
+                                        <a href="{{ settings.Korting_aanvragen_Link }}" class="button-black-white">Korting aanvragen</a>
                                     </div>
                                 </div>
                                 
@@ -112,7 +112,7 @@
                         </ul>
                     </div>
                 </div>
-                <a href="#" class="button-white-black header-btn">Verlaat webshop</a>
+                <a href="{{ settings.Verlaat_webshop_Link }}" class="button-white-black header-btn">Verlaat webshop</a>
             </div>
         </div>
     </nav>

@@ -33,6 +33,21 @@
         "label": "Phone"
       },
       {
+        "type": "url",
+        "id": "Verlaat_webshop_Link",
+        "label": "Verlaat webshop Link"
+      },
+      {
+        "type": "url",
+        "id": "Korting_aanvragen_Link",
+        "label": "Korting aanvragen Link"
+      },
+      {
+        "type": "url",
+        "id": "Vraag_hier_Link_Link",
+        "label": "Vraag hier Link"
+      },
+      {
         "type": "text",
         "id": "youtube",
         "default": "https:\/\/youtube.com",

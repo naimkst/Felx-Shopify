@@ -79,7 +79,7 @@
                                 <div class="dropdown-menu">
                                     <div class="navigation-list">
                                         {% for child_link in link.links %}
-                                            <a class="single-navigation" href="#">
+                                            <a class="single-navigation" href="{{ child_link.url }}">
                                                 {% if child_link.type == "collection_link" %}
                                                     <img class="item-thumbnail" src="{{ child_link.object.image | img_url: '' }}" alt="item thumbnail" /> <span class="item-title">{{ child_link.title }}</span>
                                                 {% endif %}

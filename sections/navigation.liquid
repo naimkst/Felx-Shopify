@@ -76,17 +76,15 @@
                                 {{ link.title }}
                             </a>
                             {% if link.links.size > 0 %}
-
                                 <div class="dropdown-menu">
                                     <div class="navigation-list">
                                         {% for child_link in link.links %}
                                             <a class="single-navigation" href="#">
-                                                % if child_link.type == "collection_link" %}
+                                                {% if child_link.type == "collection_link" %}
                                                     <img class="item-thumbnail" src="{{ child_link.object.image | img_url: '' }}" alt="item thumbnail" /> <span class="item-title">{{ child_link.title }}</span>
                                                 {% endif %}
                                             </a>
                                         {% endfor %}
-
                                     </div>
                                     <div class="navigation-bottom-bar">
                                         <a class="navigation-bottom-link" href="#"><span>Vraag hier uw unieke kortingscode aan!</span></a>

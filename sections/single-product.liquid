@@ -26,7 +26,7 @@
             <div class="col-md-6">
                 <div class="product-info">
                     <h2 class="produt-title">{{ product.title }}</h2>
-                    <h4 class="product-price"><span>{{ product.price | money }}</span> 
+                    <h4 class="product-price"><span id="price-single-page">{{ product.price | money }}</span> 
                         <!-- ex. BTW -->
                     </h4>
                     <form action="/cart/add" method="post" enctype="multipart/form-data" id="addToCart">
@@ -47,6 +47,19 @@
 
                             <input type="hidden" id="itemqty" name="quantity" value="1">
 
+                                <div class="product-swatch-color">
+                                    <h3 class="product-swatch-title">Choose a Color:</h3>
+                                    <select name="id" id="ProductSelect-{{ section.id }}" class="form-controls product-form__variants no-js single-size" data-symbol="{{ cart.currency.symbol }}" >
+                                        {% for variant in product.variants %}
+                                        {% if variant.available %}
+                                        <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} value="{{ variant.id }}">{{ variant.title }}</option>
+                                        {% else %}
+                                            <option disabled="disabled">{{ variant.title }} - {{ 'products.product.sold_out' | t }}</option>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            
                     </form>
                     <h4 class="voorraad-text"><i class="fas fa-check"></i>Op voorraad</h4>
                     <p class="product-content">{{ product.description }}</p>

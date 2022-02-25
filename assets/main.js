@@ -314,6 +314,69 @@
 
 
 
+    //For Variant Product Single page
+
+    function getVariantFromOptions() {
+      let variantArr = []
+      // console.log('hit', variantArr);
+      $(".single-size").map(function (i, el) {
+        let variant = { value: $(el).val(), index: $(el).data('index') };
+        variantArr.push(variant);
+      });
+      return variantArr;
+    }
+
+    function updateHistoryState(variant) {
+
+      if (!history.replaceState || !variant) {
+        return;
+      }
+      var newurl = window.location.protocol +
+        '//' +
+        window.location.host +
+        window.location.pathname +
+        '?variant=' +
+        variant.id;
+
+      window.history.replaceState({ path: newurl }, '', newurl);
+    }
+
+    $('.single-size').on('change', function () {
+      var form = document.querySelector('.single-size option:checked').value;
+
+      var symbol = $(this).attr("data-symbol");
+      var selectedValues = getVariantFromOptions();
+      var variants = window.product.variants;
+      var currency = window.Shopify.currency.active;
+
+      variants.forEach(function (item) {
+       
+        console.log('innnn');
+        if (item.id == form) {
+          console.log('innnn');
+          updateHistoryState(item)
+          $('.variant-idss').val(item.id);
+          const price = item.price.toString();
+          console.log(price);
+          $('#price-single-page').html(symbol + "" + price.slice(0, -2) + ".00");
+        }
+      });
+
+      // var found = _.find(variants, function (variant) {
+      //   return selectedValues.every(function (values) {
+      //     return _.isEqual(variant[values.index], values.value);
+      //   });
+      // });
+
+
+      console.log(found)
+      updateHistoryState(found)
+      $('#variant-id').val(found.id)
+    });
+
+    
+
+
 
     // End Here
   });

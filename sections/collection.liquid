@@ -32,7 +32,11 @@
                             </div>
                             <div class="product-info">
                                 <h3 class="product-title"><a href="{{ product.url }}">{{ product.title }}</a></h3>
+                                {% if product.price > 0 %}
                                 <h5 class="sub-title">{{ product.price | money }}</h5>
+                                {% else %}
+                                <h5 class="sub-title">Order on Request</h5>
+                                {% endif %}
                             </div>
                         </div>
                     </div>

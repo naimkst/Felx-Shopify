@@ -26,9 +26,15 @@
             <div class="col-md-6">
                 <div class="product-info">
                     <h2 class="produt-title">{{ product.title }}</h2>
+                    {% if product.price > 0 %}
                     <h4 class="product-price"><span id="price-single-page">{{ product.price | money }}</span> 
                         <!-- ex. BTW -->
                     </h4>
+                    {% else %}
+                    <h4 class="product-price"><span id="price-single-page">Order on Request</span> 
+                        <!-- ex. BTW -->
+                    </h4>
+                    {% endif %}
                     <form action="/cart/add" method="post" enctype="multipart/form-data" id="addToCart">
                         <input type="hidden" class="variant-idss" id="variant-id" name="id" value="{{ product.variants.first.id }}">
 
@@ -42,12 +48,12 @@
                         {% endif %}
                         <!-- <button type="submit" class="count-text-btn skipChart" ><span class="count-number">1</span><span
                             class="button-text">Offerte aanvragen</span></button> -->
-                            {% if product.price > 0 %}
+                            
                             <div class="count-text-btn ">
                                 <input class="count-number" id="" type="number" value="1" min="0" />
                                 <button class="button-text skipChart" type="submit">Offerte aanvragen</button>
                             </div>
-                            {% endif %}
+                           
 
                             <input type="hidden" id="itemqty" name="quantity" value="1">
 

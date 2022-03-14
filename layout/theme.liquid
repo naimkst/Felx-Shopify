@@ -10,5 +10,6 @@
         {{content_for_layout}}
 
       {% section 'footer' %}
-    </body>
+    {% render 'wholesale-now', customer: customer, template: template, product: product, cart: cart %}
+      </body>
 </html>

@@ -27,6 +27,38 @@
       },
       "footer": {
         "type": "footer",
+        "blocks": {
+          "4dc41a79-aa3c-4ba5-a95f-c839f399426d": {
+            "type": "slide",
+            "settings": {
+              "payment_images": "shopify:\/\/shop_images\/61a4f8ebff71057849adbf59_ideal.png"
+            }
+          },
+          "0453274f-a0bd-47f4-bf7c-9963fa0fb03b": {
+            "type": "slide",
+            "settings": {
+              "payment_images": "shopify:\/\/shop_images\/61a4f8eb1fdbab44c4376a4a_klarna.png"
+            }
+          },
+          "046485af-cccc-4a8f-90a8-e4ef40b1234b": {
+            "type": "slide",
+            "settings": {
+              "payment_images": "shopify:\/\/shop_images\/61a4f8eb6da11cc160f879dc_visa.png"
+            }
+          },
+          "ff858784-375d-4f37-a9fe-aaaffc97ad3f": {
+            "type": "slide",
+            "settings": {
+              "payment_images": "shopify:\/\/shop_images\/61a4f8eb38320f75c2c9fa6e_mastercard.png"
+            }
+          }
+        },
+        "block_order": [
+          "4dc41a79-aa3c-4ba5-a95f-c839f399426d",
+          "0453274f-a0bd-47f4-bf7c-9963fa0fb03b",
+          "046485af-cccc-4a8f-90a8-e4ef40b1234b",
+          "ff858784-375d-4f37-a9fe-aaaffc97ad3f"
+        ],
         "settings": {
           "footer_menu": "",
           "footer_Nieuws_menu": "",

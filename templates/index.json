@@ -30,21 +30,21 @@
           "type": "url",
           "settings": {
             "cta_button_text": "Neem contact op",
-            "cta_button_link": ""
+            "cta_button_link": "https:\/\/www.flex-projects.nl\/contact"
           }
         },
         "52f3e060-cac0-45f6-9fdc-2e9280fc838d": {
           "type": "url",
           "settings": {
             "cta_button_text": "Offerte aanvragen",
-            "cta_button_link": ""
+            "cta_button_link": "https:\/\/www.flex-projects.nl\/offerte-aanvragen"
           }
         },
         "595b365d-be94-4378-8b61-1ddf0c7e4341": {
           "type": "url",
           "settings": {
             "cta_button_text": "Recente projecten",
-            "cta_button_link": ""
+            "cta_button_link": "https:\/\/www.flex-projects.nl\/projecten"
           }
         }
       },

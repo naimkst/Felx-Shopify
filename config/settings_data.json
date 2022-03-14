@@ -12,7 +12,8 @@
       "header": {
         "type": "header",
         "settings": {
-          "site_title": "Flex Projects"
+          "favicon": "shopify:\/\/shop_images\/wit_FLX_transparant_kopie.png",
+          "site_title": "Flex Projects - Webshop"
         }
       },
       "navigation": {

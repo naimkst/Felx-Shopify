@@ -342,25 +342,49 @@
     }
 
     $('.single-size').on('change', function () {
-      var form = document.querySelector('.single-size option:checked').value;
+      var form = document.querySelector('.single-size').value;
+      var selected = $(".single-size :selected").map((_, e) => e.value).get();
+
+      
+      //  console.log(selected);
+      //  console.log(product.variants[0].options);
+
+
 
       var symbol = $(this).attr("data-symbol");
+      var dataIndex = $(this).attr("data-index");
       var selectedValues = getVariantFromOptions();
       var variants = window.product.variants;
       var currency = window.Shopify.currency.active;
 
+      // console.log(form);
+
+            product.variants.forEach(function (item) {
+              var options = item.options;
+              if(JSON.stringify(selected) == JSON.stringify(options)) {
+                console.log(item.id);
+                var variantId = item.id;
+                updateHistoryState(item)
+                $('.variant-idss').val(variantId);
+                const price = item.price.toString();
+                console.log(price);
+                $('#price-single-page').html(symbol + "" + price.slice(0, -2) + ".00"); 
+              } else {
+                  console.log("is NOT in array");
+              }
+            });
+
       variants.forEach(function (item) {
-       
-        console.log('innnn');
+      
         if (item.id == form) {
-          console.log('innnn');
-          updateHistoryState(item)
-          $('.variant-idss').val(item.id);
-          const price = item.price.toString();
-          console.log(price);
-          $('#price-single-page').html(symbol + "" + price.slice(0, -2) + ".00");
-        }
-      });
+            console.log('innnn');
+            updateHistoryState(item)
+            $('.variant-idss').val(item.id);
+            const price = item.price.toString();
+            console.log(price);
+            $('#price-single-page').html(symbol + "" + price.slice(0, -2) + ".00");
+          }
+        });
 
       // var found = _.find(variants, function (variant) {
       //   return selectedValues.every(function (values) {
@@ -368,13 +392,11 @@
       //   });
       // });
 
-
-      console.log(found)
-      updateHistoryState(found)
-      $('#variant-id').val(found.id)
+      // console.log(found)
+      // updateHistoryState(found)
+      // $('#variant-id').val(found.id)
     });
 
-    
 
 
 

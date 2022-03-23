@@ -27,7 +27,7 @@
                 <div class="product-info">
                     <h2 class="produt-title">{{ product.title }}</h2>
                     {% if product.price > 0 %}
-                    <h4 class="product-price"><span id="price-single-page">{{ product.price | money }}</span> 
+                    <h4 class="product-price"><span id="price-single-page">{{ product.price | times:1.05 | money }}</span> 
                         ex. BTW
                     </h4>
                     {% else %}
@@ -56,20 +56,7 @@
 
                             <input type="hidden" id="itemqty" name="quantity" value="1">
                     </form>
-                            <!-- {% if product.has_only_default_variant == false %}
-                                <div class="product-swatch-color">
-                                    <h3 class="product-swatch-title">Choose a Variation:</h3>
-                                    <select name="id" id="ProductSelect-{{ section.id }}" class="form-controls product-form__variants no-js single-size" data-symbol="{{ cart.currency.symbol }}" >
-                                        {% for variant in product.variants %}
-                                        {% if variant.available %}
-                                        <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} value="{{ variant.id }}">{{ variant.title }}</option>
-                                            {% endif %}
-                                        {% endfor %}
-                                    </select>
-                                </div>
-                            {% endif %} -->
-
-
+                           
                             {% unless product.has_only_default_variant %}
                             {% for product_option in product.options_with_values %}
                                 <div class="product-swatch-color">

@@ -8,7 +8,7 @@
     "printerest": "https:\/\/nl.pinterest.com\/0a742a3ea398b9d434f70237be062c\/",
     "linkedin": "https:\/\/www.linkedin.com\/company\/flex-projects",
     "instagram": "https:\/\/www.instagram.com\/flex_projects\/",
-    "request-quote": "https:\/\/www.flex-projects.nl\/product-korting",
+    "request-quote": "shopify:\/\/pages\/request-quote",
     "sections": {
       "header": {
         "type": "header",

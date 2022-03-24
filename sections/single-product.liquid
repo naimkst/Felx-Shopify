@@ -27,7 +27,7 @@
                 <div class="product-info">
                     <h2 class="produt-title">{{ product.title }}</h2>
                     {% if product.price > 0 %}
-                    <h4 class="product-price"><span id="price-single-page">{{ product.price | times:1.05 | money }}</span> 
+                    <h4 class="product-price"><span id="price-single-page">{{ product.price | money }}</span> 
                         ex. BTW
                     </h4>
                     {% else %}

@@ -72,7 +72,7 @@
 
                     {% for link in linklists[section.settings.main_menu].links %}
                         <li class="nav-item {% if link.links.size > 0 %} dropdown {% endif %}">
-                            <a class="nav-link {% if link.links.size > 0 %}dropdown-toggle{% endif %}" href="{{ link.url }}" role="button" data-bs-toggle="dropdown">
+                            <a class="nav-link {% if link.links.size > 0 %}dropdown-toggle{% endif %}" href="{{ link.url }}" role="button" {% if link.links.size > 0 %} data-bs-toggle="dropdown"{% endif %}>
                                 {{ link.title }}
                             </a>
                             {% if link.links.size > 0 %}

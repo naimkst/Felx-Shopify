@@ -1,28 +1,18 @@
 {
   "sections": {
-    "main": {
-      "type": "single-product",
+    "164872986328a2541e": {
+      "type": "apps",
       "settings": {
       }
     },
-    "164872986328a2541e": {
-      "type": "apps",
-      "blocks": {
-        "82a3d9b2-d2c1-4a9a-b3a5-d09e5cbd7154": {
-          "type": "shopify:\/\/apps\/product-reviews\/blocks\/reviews\/bae150af-8da8-48b2-9867-398188115e5f",
-          "settings": {
-          }
-        }
-      },
-      "block_order": [
-        "82a3d9b2-d2c1-4a9a-b3a5-d09e5cbd7154"
-      ],
+    "main": {
+      "type": "single-product",
       "settings": {
       }
     }
   },
   "order": [
-    "main",
-    "164872986328a2541e"
+    "164872986328a2541e",
+    "main"
   ]
 }

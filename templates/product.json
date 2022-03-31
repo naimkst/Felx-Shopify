@@ -1,10 +1,28 @@
 {
   "sections": {
+    "16487212535b38dfa0": {
+      "type": "apps",
+      "blocks": {
+        "b66112ea-a40f-4e41-8ae6-8f38b8463049": {
+          "type": "shopify:\/\/apps\/product-reviews\/blocks\/reviews\/bae150af-8da8-48b2-9867-398188115e5f",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "b66112ea-a40f-4e41-8ae6-8f38b8463049"
+      ],
+      "settings": {
+      }
+    },
     "main": {
-      "type": "single-product"
+      "type": "single-product",
+      "settings": {
+      }
     }
   },
   "order": [
+    "16487212535b38dfa0",
     "main"
   ]
 }

@@ -8,28 +8,28 @@
                 <div class="primary-form">
                     <div class="form-title">{{ section.settings.contact_form_title }}</div>
 
-                    {% if form.posted_successfully? %} Thank you for your contact {% endif %}
+                    {% if form.posted_successfully? %} Bedankt voor het contact opnemen {% endif %}
                     {{ form.errors | default_errors }}
 
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <select class="form-select form-control" name="contact[owner]">
-                                        <option value="Private">Private</option>
-                                        <option value="For Business">For Business</option>
+                                        <option value="Private">Privaat</option>
+                                        <option value="For Business">Voor zaken</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="firstName" name="contact[first_name]"
-                                        placeholder="First Name" />
+                                        placeholder="Voornaam" />
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="lastName" name="contact[last_name]"
-                                        placeholder="Last name" />
+                                        placeholder="Achternaam" />
                                 </div>
                             </div>
                             <div class="col-lg-12">
@@ -41,13 +41,13 @@
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <input type="tel" class="form-control" id="Telephone" name="contact[telephone]"
-                                        placeholder="Telephone" />
+                                        placeholder="Telefoon" />
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="form-group">
                                     <input type="tel" class="form-control" id="Mobile" name="contact[mobile]"
-                                        placeholder="Mobile" />
+                                        placeholder="Mobiel" />
                                 </div>
                             </div>
                             <div class="col-lg-12">
@@ -61,7 +61,7 @@
                             <div class="col-lg-12">
                                 <div class="form-group">
                                     <textarea class="form-control describe-box" id="Describe" name="contact[description]" rows="3"
-                                        placeholder="Describe your preferences"></textarea>
+                                        placeholder="Beschrijf uw voorkeuren"></textarea>
                                 </div>
                             </div>
 
@@ -95,16 +95,16 @@
                                 </div>
                             {% endfor %}
                         {% else %}
-                            <p>Please add product to cart for better conversation support!</p>
+                            <p>Voeg product toe aan winkelwagen voor betere gespreksondersteuning!</p>
                         {% endif %}
                         
                         <div class="sub-total-area">
-                            <h4 class="subtotal-title">subtotal</h4>
+                            <h4 class="subtotal-title">Subtotaal</h4>
                             <span class="subtotal-price">{{ cart.total_price | money }}</span>
                         </div>
                     </div>
                     <div class="buttons">
-                        <button type="submit" class="outlne-btn bg-solid w-100">request</button>
+                        <button type="submit" class="outlne-btn bg-solid w-100">Verzoek</button>
                         <!-- <button type="submit" name="checkout" class="outlne-btn bg-solid">Checkout</button> -->
                     </div>
                     

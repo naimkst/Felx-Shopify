@@ -8,7 +8,25 @@
                         <img src="{{ item | img_url: '' }}" alt="item" />
                     </div>
                     <div class="product-info">
+
+                    {%- assign property_size = item.properties | size -%}
+                    <ul class="product-details{% if item.product.has_only_default_variant and property_size == 0 %} hide{% endif %}" data-cart-item-details aria-label="{{ 'cart.label.product_details' | t }}">
+                      {%- for option in variant_options -%}
+                        <li class="product-details__item product-details__item--variant-option{% if item.product.has_only_default_variant %} hide{% endif %}" data-cart-item-option>{{ option.name }}: {{ option.value }}</li>
+                      {%- endfor -%}
+
                     <h4 class="product-name">{{ item.product.title }}</h4>
+
+                    {% assign property_size = item.properties | size %}
+                    {% if property_size > 0 %}
+                        {% for p in item.properties %}
+                            {% assign first_character_in_key = p.first | truncate: 1, '' %}
+                            {% unless p.last == blank or first_character_in_key == '_' %}
+                            <h4 class="product-name line-property"> {{ p.first }}-{{ p.last }}</h4>
+                            {% endunless %}
+                        {% endfor %}
+                    {% endif %}
+
                     </div>
                     <div class="product-qty">
                         <button class="dec qty-btn">-</button>
@@ -17,6 +35,16 @@
                     </div>
                     <div class="product-price">
                     <h4 class="price">{{ item.line_price | money }}</h4>
+                    {% assign property_size = item.properties | size %}
+                    {% if property_size > 0 %}
+                        {% for p in item.properties %}
+                            {% assign first_character_in_key = p.first | truncate: 1, '' %}
+                            {% unless p.last == blank or first_character_in_key == '_' %}
+                                <h4 class="product-name line-property"> +{{ cart.currency.symbol }}{{ p.last }}</h4>
+                            {% endunless %}
+                        {% endfor %}
+                    {% endif %}
+                    
                     </div>
                     <button id="remove{{ forloop.index }}" data-id="{{ forloop.index }}" class="close-item"><i class="fas fa-times"></i></button>
                 </div>

@@ -182,6 +182,24 @@
       });
     });
 
+    //Add To Cart Quote
+    $('.skipQuote').on('click', function (e) {
+      var form = $('#addToCart');
+      e.preventDefault()
+      $.ajax({
+        type: 'POST',
+        url: '/cart/add',
+        dataType: 'json',
+        data: form.serialize(),
+        success: function (data) {
+          var current_url = window.location.origin + '/pages/request-quote';
+          // console.log(current_url);
+          window.location.href = current_url;
+
+        }
+      });
+    });
+
     //Update To Cart Data
     $('.updateSkipBtn').on('click', function (e) {
       var form = $('#cartUpdate');
@@ -345,11 +363,8 @@
       var form = document.querySelector('.single-size').value;
       var selected = $(".single-size :selected").map((_, e) => e.value).get();
 
-      
       //  console.log(selected);
       //  console.log(product.variants[0].options);
-
-
 
       var symbol = $(this).attr("data-symbol");
       var dataIndex = $(this).attr("data-index");
@@ -369,6 +384,7 @@
                 const price = item.price.toString();
                 console.log(price);
                 $('#price-single-page').html(symbol + "" + price.slice(0, -2) + ".00"); 
+                sessionStorage.setItem("productPrice", price.slice(0, -2));
               } else {
                   console.log("is NOT in array");
               }
@@ -383,6 +399,7 @@
             const price = item.price.toString();
             console.log(price);
             $('#price-single-page').html(symbol + "" + price.slice(0, -2) + ".00");
+            sessionStorage.setItem("productPrice", price.slice(0, -2));
           }
         });
 
@@ -398,8 +415,39 @@
     });
 
 
+    function optionalfee() {
+      var total = sessionStorage.getItem("productPrice");
+      $('.qty1:checked').each(function() {
+        var val = $(this).val();
+        val = isNaN(val) || "" === $.trim(val) ? total : parseFloat(val);
+        total += val;
+      });
+      $('#toptional').val(total);
+      sessionStorage.setItem("total", total);
+      
+    console.log("sesstion",sessionStorage.getItem("total"));
+    console.log("curectPrice",sessionStorage.getItem("productPrice"));
+      return total;
+    }
+
+    $(function() {
+      $(".qty1").each(function() {
+        var symbol = $(this).attr("data-currenPrice");
+        console.log(symbol);
+        $(this).on("click", optionalfee);
+        // if not next to each other, 
+        // use  $("#"+$(this).data("id")).on("input", optionalfee);
+        $(this).next().on("input", optionalfee);
+      });
+    });
+
+    
+
+
+    // console.log("product", window.Shopify.product);
 
 
     // End Here
   });
+  
 })(jQuery);

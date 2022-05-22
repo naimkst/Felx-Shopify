@@ -138,6 +138,11 @@
             </div>
         </div>
     </div>
+    <div class="whatsApp">
+        <a href="https://wa.me/{{ section.settings.whatsapp }}" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
 </footer>
 <!-- footer area end here  -->
 <!-- Js file  -->
@@ -155,6 +160,8 @@
     </div>
 </form>
 <!-- offcanvas-cart end here  -->
+
+
 
 
 <script src="{{ 'jquery-3.6.0.min.js' | asset_url }}"></script>
@@ -216,6 +223,12 @@
             "id": "social_title",
             "label": "Social Title",
             "default": "Socials"
+        },
+        {
+            "type": "text",
+            "id": "whatsapp",
+            "label": "Whats App Number",
+            "default": "+123456789"
         },
         {
             "type": "text",

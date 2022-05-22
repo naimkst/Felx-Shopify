@@ -2664,3 +2664,38 @@ form#login_form  input.btn {
     width: 100%;
   }
 }
+
+/* For Label Single Shop Page */
+label#gui-product-custom-field-title-6487153 {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.product-configure-custom-option-item input {
+  margin-right: 10px;
+  margin-bottom: 12px;
+}
+h4.product-name.line-property {
+  font-size: 11px !important;
+  font-weight: 300 !important;
+  margin-bottom: 2px !important;
+}
+i.fab.fa-whatsapp {
+  font-size: 60px;
+}
+.whatsApp {
+  position: fixed;
+  right: 72px;
+  bottom: 5px;
+}
+footer.footer-area{
+  position: relative;
+}
+button.view-all {
+  border: none;
+  width: 100%;
+  padding: 12px;
+  background: #141414;
+  color: #fff;
+  font-weight: 700;
+}
